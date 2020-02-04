@@ -1,0 +1,53 @@
+/target/
+/bin/
+!.mvn/wrapper/maven-wrapper.jar
+
+### Sublime Text ###
+.sublime-project
+.sublime-workspace
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/bazel-*
+
+.gradle
+build/
+out/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+*.jar
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# It's a secret to everybody
+.env
+
+!docs/build
+
+*.DS_Store
