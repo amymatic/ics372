@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+//this is file IO related class
 public class FileIO {
 
     //file content, exists in resources folder for now
