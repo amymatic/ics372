@@ -3,19 +3,19 @@ import java.util.ArrayList;
 public class Warehouse {
 	
 	private String warehouseId;
-	private boolean receipt;
+	private boolean receiving;
 	private ArrayList<Shipment> shipmentList;
 	
 	public Warehouse (String id, boolean receipt) {
 		warehouseId = id;
-		this.receipt = receipt;
+		this.receiving = receipt;
 		shipmentList = new ArrayList<Shipment>();
 	}
 	
 	//Adds shipment to warehouse if receipt is enabled
 	//returns true if sucessful else false
 	public boolean addShipment (Shipment shipment) {
-		if (receipt) {
+		if (receiving) {
 			shipmentList.add(shipment);
 			return true;
 		}
@@ -25,14 +25,14 @@ public class Warehouse {
 	}
 	
 	//enables receipt
-	public void enableReceipt () {
-		receipt = true;
+	public void enableReceiving () {
+		receiving = true;
 		
 	}
 	
 	//ends receipt
-	public void endReceipt() {
-		receipt = false;
+	public void endReceiving() {
+		receiving = false;
 	}
 	
 	//returns warehouse id
@@ -46,8 +46,8 @@ public class Warehouse {
 	}
 	
 	//checks receipt
-	public boolean getreceipt() {
-		return receipt;
+	public boolean isReceiving() {
+		return receiving;
 	}
 
 }
