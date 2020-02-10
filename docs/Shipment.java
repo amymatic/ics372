@@ -1,53 +1,42 @@
+
+
+//This is a shipment class that can be used to create
+//and store shipments objects within a warehouse
 public class Shipment(){
-	
-	String shipmentId; 
-	String shipmentMethod;	
-	String currentWarehouseId;
-	float shipmentWeight;
-	long receivedAt;
-	
-	//No argument constructor not provided
-	public Shipment(String shipId, String shipMthd, float weight){	
+
+	private String shipmentId;
+	private String shipmentMethod;
+	private String currentWarehouseId;
+	private float shipmentWeight;
+	private long receivedAt;
+
+	//No-argument constructor not provided
+	public Shipment(String shipId, String shipMthd, float weight){
 		shipmentId = shipID;
 		shipmentMethod = shipMthd;
 		shipmentWeight = weight;
-	}
-	
-	public Shipment(String shipId, String shipMthd, String warehouse, float weight, long received){
-	
-		shipmentId = shipID;
-		shipmentMethod = shipMthd;
-		currentWarehouseId = 
-		shipmentWeight = weight;
-		receivedAt = received;		
 	}
 
-	//Basic getters and setters
-	//No setters for shipmentID, shipmentMethod and warehouseID
-	//Must be known to create shipment object
+	//This constructor is for shipments that already exist within a warehosue
+	public Shipment(String shipId, String shipMthd, String warehouse, float weight, long received){
+
+		shipmentId = shipID;
+		shipmentMethod = shipMthd;
+		currentWarehouseId =
+		shipmentWeight = weight;
+		receivedAt = received;
+	}
+
+	//No setters for shipmentID, shipmentMethod and weight
+	//must be known at construction
+
+	//set warehouseID once a warehouse has been assigned
 	public void setWarehouseId(String warehouse){
 		currentWarehouseId = warehouse;
 	}
-	
+	//set time shipment is/was received
 	public void setReceiptTime(long time){
 		receivedAt = time;
 	}
-	
-	public String getShipmentId(){
-		return shipmentId;
-	}	
-	
-	public String getShipmentMthd(){
-		return shipmentMethod;
-	}
-	public String getWarehouseId(){
-		return currentWarehouseId;
-	}
-	public float getWeight(){
-		return shipmentWeight;	
-	}
-	public long dated(){
-		return receivedAt;
-	}
-}
 
+}
