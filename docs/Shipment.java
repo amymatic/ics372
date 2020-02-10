@@ -1,42 +1,60 @@
 
-
-//This is a shipment class that can be used to create
-//and store shipments objects within a warehouse
+/**  Creates shipments to later be stored wthin a warehouse
+* @version 2.0
+* @since 1.0
+*/
 public class Shipment(){
 
-	private String shipmentId;
-	private String shipmentMethod;
-	private String currentWarehouseId;
-	private float shipmentWeight;
-	private long receivedAt;
+	private String shipment_id;
+	private String shipment_method;
+	private String warehouse_id;
+	private float weight;
+	private long receipt_date;
 
 	//No-argument constructor is not provided
-	public Shipment(String shipId, String shipMthd, float weight){
-		shipmentId = shipID;
-		shipmentMethod = shipMthd;
-		shipmentWeight = weight;
+	/** Creates a shipment with a specific shipment Id, method and weight
+	* @param shipment_id Unique id assigned to each shipment
+	* @param shipment_method type of shipping method associated with each shipment
+	* @param weight = weight of shipment
+	*/
+	public Shipment(String shipId, String shipMthd, float weighs){
+		shipment_id = shipID;
+		shipment_method = shipMthd;
+		weight = weighs;
 	}
 
-	//This constructor is for shipments that already exist within a warehouse
-	public Shipment(String shipId, String shipMthd, String warehouse, float weight, long received){
+	/** Creates a shipment that has already been assigned/exists in a warehouse
+	* @param shipment_id Unique id assigned to each shipment
+	* @param shipment_method type of shipping method associated with each shipment
+	* @param warehouse_id current warehouse the shipment is located
+	* @param weight = weight of shipment
+	*	@param receipt_date = the date in which the shipment was received
+	*/
+	public Shipment(String shipId, String shipMthd, String warehouse, float weighs, long received){
 
-		shipmentId = shipID;
-		shipmentMethod = shipMthd;
-		currentWarehouseId =
-		shipmentWeight = weight;
-		receivedAt = received;
+		shipment_id = shipID;
+		shipment_method = shipMthd;
+		warehouse_id =
+		weight = weighs;
+		receipt_date = received;
 	}
 
-	//No setters for shipmentID, shipmentMethod and weight
-	//must be known at construction 
+	/** A shipment's id, shipping method, and weight must be known at construction
+	* thus, no setters for shipment_id, shipment_method, and weight are provided
+	*/
 
-	//set warehouseID once a warehouse has been assigned
+	/** Sets the shipment's warehouse_id
+	* @param warehouse_id An id number associated with a specific warehouse
+	*/
+
 	public void setWarehouseId(String warehouse){
-		currentWarehouseId = warehouse;
+		warehouse_id = warehouse;
 	}
-	//set time shipment is/was received
-	public void setReceiptTime(long time){
-		receivedAt = time;
+	/** set time shipment is/was received
+	* @param receipt_date the date in which a shipment is received by a warehouse
+	*/
+	public void setReceipt(long received){
+	receipt_date = received;
 	}
 
 }
