@@ -10,14 +10,14 @@ public class Shipment(){
 	private float shipmentWeight;
 	private long receivedAt;
 
-	//No-argument constructor not provided
+	//No-argument constructor is not provided
 	public Shipment(String shipId, String shipMthd, float weight){
 		shipmentId = shipID;
 		shipmentMethod = shipMthd;
 		shipmentWeight = weight;
 	}
 
-	//This constructor is for shipments that already exist within a warehosue
+	//This constructor is for shipments that already exist within a warehouse
 	public Shipment(String shipId, String shipMthd, String warehouse, float weight, long received){
 
 		shipmentId = shipID;
@@ -28,7 +28,7 @@ public class Shipment(){
 	}
 
 	//No setters for shipmentID, shipmentMethod and weight
-	//must be known at construction
+	//must be known at construction 
 
 	//set warehouseID once a warehouse has been assigned
 	public void setWarehouseId(String warehouse){
