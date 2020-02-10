@@ -8,7 +8,7 @@ public class Warehouse {
 	
 	public Warehouse (String id, boolean receipt) {
 		warehouseId = id;
-		this.receiving = receipt;
+		receiving = receipt;
 		shipmentList = new ArrayList<Shipment>();
 	}
 	
