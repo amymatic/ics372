@@ -1,97 +1,93 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.*;
 
-/*
-NOTES:
--Shipment class' attributes has to be in same format as json file.
-    ->ex. String warehouse_id , String shipment_method, int weight etc.
-
--To test in driver:
-
-            WarehouseManager um = new WarehouseManager();
-            um.readInJson();
-            um.writeToJson();
-
-
-
--At the moment this only works if the json file is below(without the outer part '{ "warehouse_contents":  }:
-
-[
-  {
-    "warehouse_id": "12513",
-    "shipment_method": "air",
-    "shipment_id": "48934j",
-    "weight": 84,
-    "receipt_date": 1515354694451
-  },
-  {
-    "warehouse_id": "15566",
-    "shipment_method": "truck",
-    "shipment_id": "1adf4",
-    "weight": 354,
-    "receipt_date": 1515354694451
-  },
-  {
-    "warehouse_id": "15566",
-    "shipment_method": "ship",
-    "shipment_id": "1a545",
-    "weight": 20.6,
-    "receipt_date": 1515354694451
-  },
-  {
-    "warehouse_id": "336558",
-    "shipment_method": "rail",
-    "shipment_id": "85545",
-    "weight": 760,
-    "receipt_date": 1515354694451
-  }
-]
- */
-
+// The WarehouseManager class is responsible for keeping track of warehouses.
+// The default no-arg constructor is used to create a WarehouseManager.
 public class WarehouseManager {
 
-    Gson gson;
-    Shipment[] shipments;
-    Path path;
+    private ArrayList<Warehouse> warehouses = new ArrayList<Warehouse>();
 
-    public WarehouseManager(){
-        gson = new GsonBuilder().setPrettyPrinting().create();
+    // Clients will need to handle validation to ensure the warehouses in their
+    // WarehouseManager are unique. This method will add any warehouse to the
+    // warehouse array, even if the warehouseId is not unique. 
+    public void addWarehouse(int warehouseId) {
+        Warehouse warehouse = new Warehouse(warehouseId);
+        warehouses.add(warehouse);
     }
 
-    public void readInJson() throws Exception {
+    public ArrayList<Warehouse> getWarehouses() {
+        return warehouses;
+    }
 
-        //text file to read in json
-        String inputFile = "example.json";
-        path = new File(inputFile).toPath();
+    // This method accepts and parses a json file and creates Shipment objects
+    // that represent where Shipments are currently located and when they were
+    // received.
+    // Note that this method does not attempt to validate whether a warehouse
+    // is accepting shipments because it is meant to be used by the client only
+    // to record where shipments are that have already been accepted.
+    public void createExistingShipmentsFromJSON(String inputFile) throws
+        FileNotFoundException, IOException, ParseException {
 
-        //read json and store in to list of Shipment objects
-        try (Reader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
-            shipments =  gson.fromJson(reader, Shipment[].class);
+            FileReader file = new FileReader(inputFile);
+            JSONParser parser = new JSONParser();
+            JSONObject shipmentsObject = (JSONObject) parser.parse(file);
+            JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("warehouse_contents");
 
-            //prints shipment objects(testing purpose, can be removed afterward)
-            for (int i = 0; i < shipments.length; i++) {
-                System.out.println(shipments[i]);
+            for (Object object : shipmentsArray) {
+                JSONObject jsonShipment = (JSONObject) object;
+
+                int wID = Integer.parseInt(jsonShipment.get("warehouse_id").toString());
+                String sMode = (String) jsonShipment.get("shipment_method");
+                String sID = (String) jsonShipment.get("shipment_id");
+                float sWeight = Float.parseFloat(jsonShipment.get("weight").toString());
+                long rDate = (long) jsonShipment.get("receipt_date");
+
+                // Create the shipment
+                Shipment shipment = new Shipment(sID, sMode, sWeight, wID, rDate);
+
+                // Add the shipment to the Warehouse's records
+                for ( Warehouse wh : warehouses ) {
+                    if (wh.getWarehouseID() == wID) {
+                        wh.addShipment(shipment);
+                        System.out.println("Shipments at WH " + wID + " : " +
+                            wh.getShipments().size());
+                    }
+                }
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
-    public void writeToJson() throws Exception{
+    // This method should either produce a file that ends up being created
+    // within the directory somewhere (in other words it doesn't need to return
+    // a file object), or it can return a file object
+    public void writeAllShipmentsToJSON() {
+        JSONObject warehouseContents = new JSONObject();
+        JSONArray shipmentsArray = new JSONArray();
+        for ( Warehouse wh : warehouses ) {
+            for ( Shipment sh : wh.getShipments() ) {
+                JSONObject shipment = new JSONObject();
+                shipment.put("warehouse_id", sh.getWarehouseID());
+                shipment.put("shipment_method", sh.getShipmentMode());
+                shipment.put("shipment_id", sh.getShipmentID());
+                shipment.put("weight", sh.getShipmentWeight());
+                shipment.put("receipt_date", sh.getReceivedAt());
+                shipmentsArray.add(shipment);
+            }
+        }
+        warehouseContents.put("warehouse_contents", shipmentsArray);
 
-        //text file to export json
-        String fileName2 = "exampleOutput.json";
-        path = Paths.get(fileName2);
-
-        //write json file
-        try (Writer writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
-            gson.toJson(shipments, writer);
+        //Write JSON file
+        try (FileWriter file = new FileWriter("warehouse_contents.json")) {
+ 
+            file.write(warehouseContents.toJSONString());
+            file.flush();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
