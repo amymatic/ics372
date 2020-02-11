@@ -18,7 +18,7 @@ public class Shipment{
 	* @param weight = weight of shipment
 	*/
 	public Shipment(String shipId, String shipMthd, float weighs){
-		shipment_id = shipID;
+		shipment_id = shipId;
 		shipment_method = shipMthd;
 		weight = weighs;
 	}
@@ -32,9 +32,9 @@ public class Shipment{
 	*/
 	public Shipment(String shipId, String shipMthd, String warehouse, float weighs, long received){
 
-		shipment_id = shipID;
+		shipment_id = shipId;
 		shipment_method = shipMthd;
-		warehouse_id =
+		warehouse_id = warehouse;
 		weight = weighs;
 		receipt_date = received;
 	}
@@ -56,5 +56,6 @@ public class Shipment{
 	public void setReceipt(long received){
 	receipt_date = received;
 	}
+
 
 }
