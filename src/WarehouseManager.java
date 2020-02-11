@@ -1,27 +1,40 @@
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+package project1;
 
 import java.io.*;
 import java.util.*;
+import jsonsimple.*;
 
-// The WarehouseManager class is responsible for keeping track of warehouses.
-// The default no-arg constructor is used to create a WarehouseManager.
+/**
+ * The WarehouseManager class is responsible for keeping track of a group of
+ * warehouses. It reads and stores existing shipments from JSON files, and
+ * writes warehouse contents to JSON.
+ */
 public class WarehouseManager {
+    
+    private ArrayList<Warehouse> warehouseList = new ArrayList<Warehouse>();
 
-    private ArrayList<Warehouse> warehouses = new ArrayList<Warehouse>();
-
-    // Clients will need to handle validation to ensure the warehouses in their
-    // WarehouseManager are unique. This method will add any warehouse to the
-    // warehouse array, even if the warehouseId is not unique. 
-    public void addWarehouse(int warehouseId) {
-        Warehouse warehouse = new Warehouse(warehouseId);
-        warehouses.add(warehouse);
+    public WarehouseManager() {
     }
 
+    /**
+     * The addWarehouse method creates a new Warehouse object and adds it to
+     * the WarehouseManager array list. Clients will need to handle validation
+     * to ensure the warehouses in their WarehouseManager are unique. This
+     * method will add any warehouse, even if the warehouseId is not unique.
+     * @param warehouseID The ID that the new warehouse will be assigned
+     */
+    public void addWarehouse(int warehouseID) {
+        Warehouse warehouse = new Warehouse(warehouseID);
+        warehouseList.add(warehouse);
+    }
+
+    /**
+     * The getWarehouses method returns the WarehouseManager's list of
+     * warehouses.
+     * @return The list of warehouses
+     */
     public ArrayList<Warehouse> getWarehouses() {
-        return warehouses;
+        return warehouseList;
     }
 
     // This method accepts and parses a json file and creates Shipment objects
@@ -32,11 +45,11 @@ public class WarehouseManager {
     // to record where shipments are that have already been accepted.
     public void createExistingShipmentsFromJSON(String inputFile) throws
         FileNotFoundException, IOException, ParseException {
-
             FileReader file = new FileReader(inputFile);
             JSONParser parser = new JSONParser();
             JSONObject shipmentsObject = (JSONObject) parser.parse(file);
-            JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("warehouse_contents");
+            JSONArray shipmentsArray = (JSONArray)
+                shipmentsObject.get("warehouse_contents");
 
             for (Object object : shipmentsArray) {
                 JSONObject jsonShipment = (JSONObject) object;
@@ -51,20 +64,29 @@ public class WarehouseManager {
                 Shipment shipment = new Shipment(sID, sMode, sWeight, wID, rDate);
 
                 // Add the shipment to the Warehouse's records
-                for ( Warehouse wh : warehouses ) {
+                for ( Warehouse wh : warehouseList ) {
                     if (wh.getWarehouseID() == wID) {
-                        wh.addShipment(shipment);
-                        System.out.println("Shipments at WH " + wID + " : " +
-                            wh.getShipments().size());
+                        wh.recordShipment(shipment);
                     }
                 }
             }
     }
 
-    // This method should either produce a file that ends up being created
-    // within the directory somewhere (in other words it doesn't need to return
-    // a file object), or it can return a file object
+    /**
+     * The writeAllShipmentsToJSON method calls the writeShipmentsToJSON method
+     * with the entire list of warehouses maintained by the WarehouseManager.
+     */
     public void writeAllShipmentsToJSON() {
+        writeShipmentsToJSON(warehouseList);
+    }
+
+    /**
+     * The writeShipmentsToJSON method accepts an array list of warehouses and
+     * writes the shipments of each warehouse to a JSON file located in the
+     * target directory of the project.
+     * @param warehouses An array list of warehouses
+     */
+    public void writeShipmentsToJSON(ArrayList<Warehouse> warehouses) {
         JSONObject warehouseContents = new JSONObject();
         JSONArray shipmentsArray = new JSONArray();
         for ( Warehouse wh : warehouses ) {
@@ -81,11 +103,10 @@ public class WarehouseManager {
         warehouseContents.put("warehouse_contents", shipmentsArray);
 
         //Write JSON file
-        try (FileWriter file = new FileWriter("warehouse_contents.json")) {
- 
+        try (FileWriter file =
+            new FileWriter("../../../target/warehouse_contents.json")) {
             file.write(warehouseContents.toJSONString());
             file.flush();
- 
         } catch (IOException e) {
             e.printStackTrace();
         }
