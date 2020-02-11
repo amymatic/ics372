@@ -7,7 +7,7 @@ public class Shipment{
 
 	private String shipment_id;
 	private String shipment_method;
-	private String warehouse_id;-
+	private String warehouse_id;
 	private float weight;
 	private long receipt_date;
 
