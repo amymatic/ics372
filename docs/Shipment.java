@@ -1,61 +1,107 @@
+package project1;
 
-/**  Creates shipments to later be stored wthin a warehouse
-* @version 2.0
-* @since 1.0
-*/
-public class Shipment{
+import java.io.*;
+import java.util.*;
+import java.time.Instant;
+import jsonsimple.*;
 
-	private String shipment_id;
-	private String shipment_method;
-	private String warehouse_id;
-	private float weight;
-	private long receipt_date;
+/**
+ * The Shipment class keeps track of the ID, weight, location, and other
+ * metadata about a shipment.
+ */
+public class Shipment {
+	private String shipmentID;
+	private String shipmentMode;
+	private float shipmentWeight;
+	private int currentWarehouseID;
+	private long receivedAt;
 
-	//No-argument constructor is not provided
-	/** Creates a shipment with a specific shipment Id, method and weight
-	* @param shipment_id Unique id assigned to each shipment
-	* @param shipment_method type of shipping method associated with each shipment
-	* @param weight = weight of shipment
-	*/
-	public Shipment(String shipId, String shipMthd, float weighs){
-		shipment_id = shipId;
-		shipment_method = shipMthd;
-		weight = weighs;
+	/**
+	 * This Shipment constructor sets all the attributes of a shipment.
+	 * @param shipID The ID of the shipment
+	 * @param mode The shipping method of the shipment, such as 'air' or 'rail'
+	 * @param float The weight of the shipment
+	 * @param whID The ID of the warehouse housing the shipment
+	 * @param time The time the shipment was received, in ms since Jan 1 1970
+	 */
+	public Shipment(String shipID, String mode, float weight, int whID, long time) {
+		shipmentID = shipID;
+		shipmentMode = mode;
+		shipmentWeight = weight;
+		currentWarehouseID = whID;
+		receivedAt = time;
 	}
 
-	/** Creates a shipment that has already been assigned/exists in a warehouse
-	* @param shipment_id Unique id assigned to each shipment
-	* @param shipment_method type of shipping method associated with each shipment
-	* @param warehouse_id current warehouse the shipment is located
-	* @param weight = weight of shipment
-	* @param receipt_date = the date in which the shipment was received
-	*/
-	public Shipment(String shipId, String shipMthd, String warehouse, float weighs, long received){
-
-		shipment_id = shipId;
-		shipment_method = shipMthd;
-		warehouse_id = warehouse;
-		weight = weighs;
-		receipt_date = received;
+	/**
+	 * This Shipment constructor sets the shipment ID, method, and weight, but
+	 * not the warehouse ID or receipt timestamp. It is intended to be used by
+	 * clients that are staging shipments prior to any attempt to send it to a
+	 * warehouse.
+	 * @param shipID The ID of the shipment
+	 * @param mode The shipping method of the shipment, such as 'air' or 'rail'
+	 * @param float The weight of the shipment
+	 */
+	public Shipment(String shipID, String mode, float weight) {
+		shipmentID = shipID;
+		shipmentMode = mode;
+		shipmentWeight = weight;
 	}
 
-	/** A shipment's id, shipping method, and weight must be known at construction
-	* thus, no setters for shipment_id, shipment_method, and weight are provided
-	*/
-
-	/** Sets the shipment's warehouse_id
-	* @param warehouse_id An id number associated with a specific warehouse
-	*/
-
-	public void setWarehouseId(String warehouse){
-		warehouse_id = warehouse;
-	}
-	/** set time shipment is/was received
-	* @param receipt_date the date in which a shipment is received by a warehouse
-	*/
-	public void setReceipt(long received){
-	receipt_date = received;
+	/**
+	 * The getShipmentID method returns the ID of the shipment.
+	 * @return The ID of the shipment, as a String
+	 */
+	public String getShipmentID() {
+		return shipmentID;
 	}
 
+	/**
+	 * The getShipmentMode method returns the shipping mode.
+	 * @return The way the shipment is being sent, as a String
+	 */
+	public String getShipmentMode() {
+		return shipmentMode;
+	}
 
+	/**
+	 * The getShipmentWeight method returns the weight of the shipment.
+	 * @return The shipment weight, as a float
+	 */
+	public float getShipmentWeight() {
+		return shipmentWeight;
+	}
+
+	/**
+	 * The getWarehouseID method returns the ID of the warehouse housing the
+	 * shipment.
+	 * @return The warehouse ID where the shipment is located, as an int
+	 */
+	public int getWarehouseID() {
+		return currentWarehouseID;
+	}
+
+	/**
+	 * The getReceivedAt method returns the timestamp the shipment was
+	 * received at the warehouse.
+	 * @return The shipment receipt timestamp, in ms since the UNIX Epoch
+	 */
+	public long getReceivedAt() {
+		return receivedAt;
+	}
+
+	/**
+	 * The setWarehouseID method assigns the shipment to a warehouse.
+	 * @param whID The ID of the warehouse accepting the shipment
+	 */
+	public void setWarehouseID(int whID) {
+		currentWarehouseID = whID;
+	}
+
+	/**
+	 * The setReceiptTime method records the timestamp the shipment is accepted
+	 * at the warehouse
+	 */
+	public void setReceiptTime() {
+		receivedAt = Instant.now().toEpochMilli();
+	}
 }
