@@ -1,10 +1,9 @@
-/target/
 /bin/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### Sublime Text ###
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 
 ### STS ###
 .apt_generated
