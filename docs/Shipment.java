@@ -3,11 +3,11 @@
 * @version 2.0
 * @since 1.0
 */
-public class Shipment(){
+public class Shipment{
 
 	private String shipment_id;
 	private String shipment_method;
-	private String warehouse_id;
+	private String warehouse_id;-
 	private float weight;
 	private long receipt_date;
 
@@ -28,7 +28,7 @@ public class Shipment(){
 	* @param shipment_method type of shipping method associated with each shipment
 	* @param warehouse_id current warehouse the shipment is located
 	* @param weight = weight of shipment
-	*	@param receipt_date = the date in which the shipment was received
+	* @param receipt_date = the date in which the shipment was received
 	*/
 	public Shipment(String shipId, String shipMthd, String warehouse, float weighs, long received){
 
