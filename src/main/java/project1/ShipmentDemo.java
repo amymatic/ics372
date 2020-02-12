@@ -15,10 +15,13 @@ public class ShipmentDemo {
 	/**
 	 * The main method accepts a sequence of JSON files when ShipmentDemo is
 	 * called from the command line. For example: 
-	 *    java /project1/Shipment example.json example2.json
+	 *    java project1/ShipmentDemo example.json example2.json
 	 * The JSON files contain records of where shipments are currently located.
 	 * The shipments are read from the files and stored into Shipment objects.
 	 * @param args JSON File names located in the project resources directory
+	 * @throws FileNotFoundException If the file is not found
+	 * @throws IOException If the input or output encounters a problem
+	 * @throws ParseException If the file cannot be parsed
 	 */
 	public static void main(String[] args) throws
 		FileNotFoundException, IOException, ParseException {
@@ -51,6 +54,9 @@ public class ShipmentDemo {
 	 * warehouses exist. Note that this client of WarehouseManager is
 	 * validating to ensure each warehouse ID in its inventory is unique.
 	 * @param fileName The name of the file
+	 * @throws FileNotFoundException If the file is not found
+	 * @throws IOException If the input or output encounters a problem
+	 * @throws ParseException If the file cannot be parsed
 	 */
 	private void setupWarehouses(String fileName) throws
 		FileNotFoundException, IOException, ParseException {
