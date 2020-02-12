@@ -37,12 +37,12 @@ public class ShipmentDemo {
 		// Exports all the warehouse contents to JSON file for demonstration
 		demo.warehouseMgr.writeAllShipmentsToJSON();
 
-		// Exports the warehouse contents of a single warehouse to JSON file
-		// for demonstration
-		ArrayList<Warehouse> whList = new ArrayList<Warehouse>();
-		whList.add(demo.warehouseMgr.getWarehouses().get(0));
-
-		demo.warehouseMgr.writeShipmentsToJSON(whList);
+		// Exports the warehouse contents of only the first warehouse to JSON
+		// file for demonstration - uncomment this and comment the call to 
+		// writeAllShipmentsToJSON above to see this method in action instead.
+		//ArrayList<Warehouse> whList = new ArrayList<Warehouse>();
+		//whList.add(demo.warehouseMgr.getWarehouses().get(0));
+		//demo.warehouseMgr.writeShipmentsToJSON(whList);
 	}
 
 	/**
