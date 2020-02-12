@@ -43,9 +43,9 @@ public class WarehouseManager {
      * including where is is located and when it was received at that warehouse.
      * It then adds a corresponding record of the shipment for its warehouse.
      * @param inputFile The file containing the JSON shipment array
-	 * @throws FileNotFoundException If the file is not found
-	 * @throws IOException If the input or output encounters a problem
-	 * @throws ParseException If the file cannot be parsed
+     * @throws FileNotFoundException If the file is not found
+     * @throws IOException If the input or output encounters a problem
+     * @throws ParseException If the file cannot be parsed
      */
     public void createExistingShipmentsFromJSON(String inputFile) throws
         FileNotFoundException, IOException, ParseException {
