@@ -37,12 +37,16 @@ public class WarehouseManager {
         return warehouseList;
     }
 
-    // This method accepts and parses a json file and creates Shipment objects
-    // that represent where Shipments are currently located and when they were
-    // received.
-    // Note that this method does not attempt to validate whether a warehouse
-    // is accepting shipments because it is meant to be used by the client only
-    // to record where shipments are that have already been accepted.
+    /**
+     * The createExistingShipmentsnFromJSON method parses a json file and creates records
+     * for every shipment in the file, reading and storing the metadata for each shipment,
+     * including where is is located and when it was received at that warehouse.
+     * It then adds a corresponding record of the shipment for its warehouse.
+     * @param inputFile The file containing the JSON shipment array
+	 * @throws FileNotFoundException If the file is not found
+	 * @throws IOException If the input or output encounters a problem
+	 * @throws ParseException If the file cannot be parsed
+     */
     public void createExistingShipmentsFromJSON(String inputFile) throws
         FileNotFoundException, IOException, ParseException {
             FileReader file = new FileReader(inputFile);
