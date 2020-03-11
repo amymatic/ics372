@@ -20,30 +20,30 @@ public class ShipmentDemo {
 	 * The shipments are read from the files and stored into Shipment objects.
 	 * @param args JSON File names located in the project resources directory
 	 */
-	public static void main(String[] args) throws
-		FileNotFoundException, IOException, ParseException {
-
-		ShipmentDemo demo = new ShipmentDemo();
-
-		// Processes each file provided as args when ShipmentDemo is run,
-		// creating warehouses as needed for the demonstration, and storing
-		// the shipments in the warehouses.
-		for ( String arg : args ) {
-			String fileName = ("../resources/" + arg);
-			demo.setupWarehouses(fileName);
-			demo.warehouseMgr.createExistingShipmentsFromJSON(fileName);
-		}
-
-		// Exports all the warehouse contents to JSON file for demonstration
-		demo.warehouseMgr.writeAllShipmentsToJSON();
-
-		// Exports the warehouse contents of a single warehouse to JSON file
-		// for demonstration
-		ArrayList<Warehouse> whList = new ArrayList<Warehouse>();
-		whList.add(demo.warehouseMgr.getWarehouses().get(0));
-
-		demo.warehouseMgr.writeShipmentsToJSON(whList);
-	}
+//	public static void main(String[] args) throws
+//		FileNotFoundException, IOException, ParseException {
+//
+//		ShipmentDemo demo = new ShipmentDemo();
+//
+//		// Processes each file provided as args when ShipmentDemo is run,
+//		// creating warehouses as needed for the demonstration, and storing
+//		// the shipments in the warehouses.
+//		for ( String arg : args ) {
+//			String fileName = ("../resources/" + arg);
+//			demo.setupWarehouses(fileName);
+//			demo.warehouseMgr.createExistingShipmentsFromJSON(fileName);
+//		}
+//
+//		// Exports all the warehouse contents to JSON file for demonstration
+//		demo.warehouseMgr.writeAllShipmentsToJSON();
+//
+//		// Exports the warehouse contents of a single warehouse to JSON file
+//		// for demonstration
+//		ArrayList<Warehouse> whList = new ArrayList<Warehouse>();
+//		whList.add(demo.warehouseMgr.getWarehouses().get(0));
+//
+//		demo.warehouseMgr.writeShipmentsToJSON(whList);
+//	}
 
 	/**
 	 * The setupWarehouses method is a private method that is run prior to
