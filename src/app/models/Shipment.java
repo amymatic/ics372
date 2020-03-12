@@ -1,9 +1,6 @@
-package project1;
+package app.models;
 
-import java.io.*;
-import java.util.*;
 import java.time.Instant;
-import jsonsimple.*;
 
 /**
  * The Shipment class keeps track of the ID, weight, location, and other
@@ -20,7 +17,7 @@ public class Shipment {
 	 * This Shipment constructor sets all the attributes of a shipment.
 	 * @param shipID The ID of the shipment
 	 * @param mode The shipping method of the shipment, such as 'air' or 'rail'
-	 * @param float The weight of the shipment
+	 * @param weight The weight of the shipment
 	 * @param whID The ID of the warehouse housing the shipment
 	 * @param time The time the shipment was received, in ms since Jan 1 1970
 	 */
@@ -39,7 +36,7 @@ public class Shipment {
 	 * warehouse.
 	 * @param shipID The ID of the shipment
 	 * @param mode The shipping method of the shipment, such as 'air' or 'rail'
-	 * @param float The weight of the shipment
+	 * @param weight The weight of the shipment
 	 */
 	public Shipment(String shipID, String mode, float weight) {
 		shipmentID = shipID;

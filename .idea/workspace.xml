@@ -2,32 +2,84 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08f4aea8-038a-4699-9756-28ae7370eac5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/models/Warehouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project1/SimpleNav$LinkContent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project1/SimpleNav.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project1/SimpleNav.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/using_git.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/ContainerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ContainerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/ContentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ContentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/ItemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ItemList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/JSONArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/JSONAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONAware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/JSONObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/JSONParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/JSONStreamAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONStreamAware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/JSONValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/ParseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ParseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/Yylex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/Yylex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/Yytoken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/Yytoken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsonsimple/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project1/Shipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/Shipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project1/ShipmentDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/ShipmentDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project1/Warehouse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project1/WarehouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/WarehouseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project1/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/example.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/example2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ics372.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ics372.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controllers/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/NavigationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controllers/ShipTrackerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/ShipTrackerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/helpers/AlertHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/helpers/AlertHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/ContainerFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/ContainerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ContainerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/ContentHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/ContentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ContentHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/ItemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ItemList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONArray.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONAware.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONAware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONStreamAware.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONStreamAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONStreamAware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/JSONValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/JSONValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/ParseException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/ParseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/ParseException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/Yylex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/Yylex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/Yylex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/Yytoken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/Yytoken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/Yytoken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/jsonsimple/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/jsonsimple/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/ShipTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/ShipTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/Shipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/Shipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/ShipmentDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/WarehouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/WarehouseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/addShipment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/addShipment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/addWarehouse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/addWarehouse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/importShipments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/importShipments.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/manageShipment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/manageShipment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/manageWarehouse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/manageWarehouse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/shipmentReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/shipmentReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/shiptracker.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/shiptracker.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/warehouseReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/warehouseReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/AlertHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/AlertHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/NavigationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/ShipTracker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/ShipTrackerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/addShipment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/addShipment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/addWarehouse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/addWarehouse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/importShipments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/importShipments.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/ContainerFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/ContentHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/ItemList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/JSONArray.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/JSONAware.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/JSONObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/JSONParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/JSONStreamAware.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/JSONValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/ParseException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/Yylex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/jsonsimple/Yytoken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/manageShipment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/manageShipment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/manageWarehouse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/manageWarehouse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/project1/Shipment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/project1/ShipmentDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/project1/Warehouse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/project1/WarehouseManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/shipmentReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/shipmentReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/shiptracker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/shiptracker.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/shiptracker.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/production/ics372/warehouseReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/production/ics372/warehouseReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project1/SimpleNav$LinkContent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project1/SimpleNav.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project1/SimpleNav.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project1/nav.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +88,13 @@
   </component>
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,6 +108,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -58,13 +118,13 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
+      <recent name="$PROJECT_DIR$/src/lib" />
       <recent name="$PROJECT_DIR$/src/bin" />
       <recent name="$PROJECT_DIR$/src/app/views" />
       <recent name="$PROJECT_DIR$/src/app/models" />
-      <recent name="$PROJECT_DIR$/src/app/helpers" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ShipTracker (1)">
     <configuration name="ShipTracker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ShipTracker" />
       <module name="ics372" />
@@ -72,8 +132,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ShipTracker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.models.ShipTracker" />
+      <module name="ics372" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShipTracker (1)" />
         <item itemvalue="Application.ShipTracker" />
       </list>
     </recent_temporary>
@@ -104,15 +178,23 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="407" y="117" key="#Project_Structure" timestamp="1583889866691">
+    <state x="253" y="90" key="#Project_Structure" timestamp="1583982609288">
       <screen x="0" y="23" width="1440" height="786" />
     </state>
+    <state x="253" y="90" key="#Project_Structure/0.23.1440.785@0.23.1440.785" timestamp="1583946753201" />
     <state x="407" y="117" key="#Project_Structure/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583889866691" />
+    <state x="253" y="90" key="#Project_Structure/0.23.1440.786@0.23.1440.786" timestamp="1583982609288" />
+    <state x="253" y="90" key="#Project_Structure/0.23.1440.790@0.23.1440.790" timestamp="1583982464718" />
     <state x="407" y="118" key="#Project_Structure/0.23.1440.793@0.23.1440.793" timestamp="1583802886514" />
+    <state x="407" y="118" key="#Project_Structure/0.23.1440.797@0.23.1440.797" timestamp="1583937179980" />
     <state x="343" y="63" key="#Scopes" timestamp="1583799402929">
       <screen x="0" y="23" width="1440" height="793" />
     </state>
     <state x="343" y="63" key="#Scopes/0.23.1440.793@0.23.1440.793" timestamp="1583799402929" />
+    <state x="458" y="189" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1583936617562">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="458" y="189" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.797@0.23.1440.797" timestamp="1583936617562" />
     <state x="184" y="80" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583769057504">
       <screen x="0" y="23" width="1440" height="793" />
     </state>
@@ -122,73 +204,78 @@
       <screen x="0" y="23" width="1440" height="790" />
     </state>
     <state x="570" y="314" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.790@0.23.1440.790" timestamp="1583650171221" />
-    <state x="943" y="234" key="#xdebugger.evaluate" timestamp="1583926629430">
+    <state x="739" y="234" width="604" height="579" key="#xdebugger.evaluate" timestamp="1583984427593">
       <screen x="0" y="23" width="1440" height="790" />
     </state>
-    <state x="943" y="234" key="#xdebugger.evaluate/0.23.1440.790@0.23.1440.790" timestamp="1583926629430" />
-    <state width="1398" height="7" key="GridCell.Tab.0.bottom" timestamp="1583932471535">
-      <screen x="0" y="23" width="1440" height="793" />
+    <state x="739" y="234" width="604" height="579" key="#xdebugger.evaluate/0.23.1440.790@0.23.1440.790" timestamp="1583984427593" />
+    <state width="1398" height="235" key="GridCell.Tab.0.bottom" timestamp="1583986610637">
+      <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.0.bottom/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890688387" />
-    <state width="1398" height="254" key="GridCell.Tab.0.bottom/0.23.1440.786@0.23.1440.786" timestamp="1583929359770" />
-    <state width="1398" height="168" key="GridCell.Tab.0.bottom/0.23.1440.790@0.23.1440.790" timestamp="1583928655796" />
+    <state width="1398" height="235" key="GridCell.Tab.0.bottom/0.23.1440.786@0.23.1440.786" timestamp="1583986610637" />
+    <state width="1398" height="235" key="GridCell.Tab.0.bottom/0.23.1440.790@0.23.1440.790" timestamp="1583984902416" />
     <state width="1398" height="7" key="GridCell.Tab.0.bottom/0.23.1440.793@0.23.1440.793" timestamp="1583932471535" />
-    <state width="1398" height="236" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583814262995" />
-    <state width="1398" height="7" key="GridCell.Tab.0.center" timestamp="1583932471534">
-      <screen x="0" y="23" width="1440" height="793" />
+    <state width="1398" height="7" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583938213230" />
+    <state width="1398" height="235" key="GridCell.Tab.0.center" timestamp="1583986610636">
+      <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.0.center/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890688386" />
-    <state width="1398" height="254" key="GridCell.Tab.0.center/0.23.1440.786@0.23.1440.786" timestamp="1583929359770" />
-    <state width="1398" height="168" key="GridCell.Tab.0.center/0.23.1440.790@0.23.1440.790" timestamp="1583928655795" />
+    <state width="1398" height="235" key="GridCell.Tab.0.center/0.23.1440.786@0.23.1440.786" timestamp="1583986610636" />
+    <state width="1398" height="235" key="GridCell.Tab.0.center/0.23.1440.790@0.23.1440.790" timestamp="1583984902415" />
     <state width="1398" height="7" key="GridCell.Tab.0.center/0.23.1440.793@0.23.1440.793" timestamp="1583932471534" />
-    <state width="1398" height="236" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583814262994" />
-    <state width="1398" height="7" key="GridCell.Tab.0.left" timestamp="1583932471533">
-      <screen x="0" y="23" width="1440" height="793" />
+    <state width="1398" height="7" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583938213229" />
+    <state width="1398" height="235" key="GridCell.Tab.0.left" timestamp="1583986610636">
+      <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.0.left/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890688385" />
-    <state width="1398" height="254" key="GridCell.Tab.0.left/0.23.1440.786@0.23.1440.786" timestamp="1583929359769" />
-    <state width="1398" height="168" key="GridCell.Tab.0.left/0.23.1440.790@0.23.1440.790" timestamp="1583928655795" />
+    <state width="1398" height="235" key="GridCell.Tab.0.left/0.23.1440.786@0.23.1440.786" timestamp="1583986610636" />
+    <state width="1398" height="235" key="GridCell.Tab.0.left/0.23.1440.790@0.23.1440.790" timestamp="1583984902415" />
     <state width="1398" height="7" key="GridCell.Tab.0.left/0.23.1440.793@0.23.1440.793" timestamp="1583932471533" />
-    <state width="1398" height="236" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583814262993" />
-    <state width="1398" height="7" key="GridCell.Tab.0.right" timestamp="1583932471535">
-      <screen x="0" y="23" width="1440" height="793" />
+    <state width="1398" height="7" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583938213229" />
+    <state width="1398" height="235" key="GridCell.Tab.0.right" timestamp="1583986610637">
+      <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.0.right/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890688386" />
-    <state width="1398" height="254" key="GridCell.Tab.0.right/0.23.1440.786@0.23.1440.786" timestamp="1583929359770" />
-    <state width="1398" height="168" key="GridCell.Tab.0.right/0.23.1440.790@0.23.1440.790" timestamp="1583928655796" />
+    <state width="1398" height="235" key="GridCell.Tab.0.right/0.23.1440.786@0.23.1440.786" timestamp="1583986610637" />
+    <state width="1398" height="235" key="GridCell.Tab.0.right/0.23.1440.790@0.23.1440.790" timestamp="1583984902415" />
     <state width="1398" height="7" key="GridCell.Tab.0.right/0.23.1440.793@0.23.1440.793" timestamp="1583932471535" />
-    <state width="1398" height="236" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583814262994" />
-    <state width="1398" height="326" key="GridCell.Tab.1.bottom" timestamp="1583926851566">
+    <state width="1398" height="7" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583938213229" />
+    <state width="1398" height="327" key="GridCell.Tab.1.bottom" timestamp="1583984609371">
       <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.1.bottom/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890689001" />
-    <state width="1398" height="326" key="GridCell.Tab.1.bottom/0.23.1440.786@0.23.1440.786" timestamp="1583926851566" />
+    <state width="1398" height="327" key="GridCell.Tab.1.bottom/0.23.1440.786@0.23.1440.786" timestamp="1583984609371" />
+    <state width="1398" height="268" key="GridCell.Tab.1.bottom/0.23.1440.790@0.23.1440.790" timestamp="1583978799315" />
     <state width="1398" height="234" key="GridCell.Tab.1.bottom/0.23.1440.793@0.23.1440.793" timestamp="1583815105837" />
-    <state width="1398" height="326" key="GridCell.Tab.1.center" timestamp="1583926851565">
+    <state width="1398" height="327" key="GridCell.Tab.1.center" timestamp="1583984609370">
       <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.1.center/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890689000" />
-    <state width="1398" height="326" key="GridCell.Tab.1.center/0.23.1440.786@0.23.1440.786" timestamp="1583926851565" />
+    <state width="1398" height="327" key="GridCell.Tab.1.center/0.23.1440.786@0.23.1440.786" timestamp="1583984609370" />
+    <state width="1398" height="268" key="GridCell.Tab.1.center/0.23.1440.790@0.23.1440.790" timestamp="1583978799312" />
     <state width="1398" height="234" key="GridCell.Tab.1.center/0.23.1440.793@0.23.1440.793" timestamp="1583815105836" />
-    <state width="1398" height="326" key="GridCell.Tab.1.left" timestamp="1583926851565">
+    <state width="1398" height="327" key="GridCell.Tab.1.left" timestamp="1583984609370">
       <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.1.left/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890688999" />
-    <state width="1398" height="326" key="GridCell.Tab.1.left/0.23.1440.786@0.23.1440.786" timestamp="1583926851565" />
+    <state width="1398" height="327" key="GridCell.Tab.1.left/0.23.1440.786@0.23.1440.786" timestamp="1583984609370" />
+    <state width="1398" height="268" key="GridCell.Tab.1.left/0.23.1440.790@0.23.1440.790" timestamp="1583978799311" />
     <state width="1398" height="234" key="GridCell.Tab.1.left/0.23.1440.793@0.23.1440.793" timestamp="1583815105836" />
-    <state width="1398" height="326" key="GridCell.Tab.1.right" timestamp="1583926851565">
+    <state width="1398" height="327" key="GridCell.Tab.1.right" timestamp="1583984609371">
       <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state width="1398" height="97" key="GridCell.Tab.1.right/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583890689000" />
-    <state width="1398" height="326" key="GridCell.Tab.1.right/0.23.1440.786@0.23.1440.786" timestamp="1583926851565" />
+    <state width="1398" height="327" key="GridCell.Tab.1.right/0.23.1440.786@0.23.1440.786" timestamp="1583984609371" />
+    <state width="1398" height="268" key="GridCell.Tab.1.right/0.23.1440.790@0.23.1440.790" timestamp="1583978799314" />
     <state width="1398" height="234" key="GridCell.Tab.1.right/0.23.1440.793@0.23.1440.793" timestamp="1583815105836" />
     <state x="352" y="99" key="NewModule_or_Project.wizard" timestamp="1583884047385">
       <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state x="352" y="99" key="NewModule_or_Project.wizard/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583884047385" />
-    <state x="249" y="23" key="SettingsEditor" timestamp="1583798650939">
-      <screen x="0" y="23" width="1440" height="793" />
+    <state x="249" y="23" key="SettingsEditor" timestamp="1583946574135">
+      <screen x="0" y="23" width="1440" height="785" />
     </state>
+    <state x="249" y="23" key="SettingsEditor/0.23.1440.785@0.23.1440.785" timestamp="1583946574135" />
     <state x="231" y="23" key="SettingsEditor/0.23.1440.790@0.23.1440.790" timestamp="1583664164567" />
     <state x="249" y="23" key="SettingsEditor/0.23.1440.793@0.23.1440.793" timestamp="1583798650939" />
     <state x="473" y="137" width="540" height="524" key="StructurePopup" timestamp="1583667652421">
@@ -199,10 +286,12 @@
       <screen x="0" y="23" width="1440" height="790" />
     </state>
     <state width="720" height="393" key="XDebugger.FullValuePopup/0.23.1440.790@0.23.1440.790" timestamp="1583926342622" />
-    <state x="402" y="230" key="com.intellij.ide.util.TipDialog" timestamp="1583858746808">
-      <screen x="0" y="23" width="1440" height="786" />
+    <state x="402" y="230" key="com.intellij.ide.util.TipDialog" timestamp="1583944009920">
+      <screen x="0" y="23" width="1440" height="785" />
     </state>
+    <state x="402" y="230" key="com.intellij.ide.util.TipDialog/0.23.1440.785@0.23.1440.785" timestamp="1583944009920" />
     <state x="402" y="230" key="com.intellij.ide.util.TipDialog/0.23.1440.786@0.23.1440.786" timestamp="1583858746808" />
+    <state x="402" y="232" key="com.intellij.ide.util.TipDialog/0.23.1440.793@0.23.1440.793" timestamp="1583941241150" />
     <state x="275" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1583815058621">
       <screen x="0" y="23" width="1440" height="793" />
     </state>
@@ -211,19 +300,29 @@
       <screen x="0" y="23" width="1440" height="786" />
     </state>
     <state x="117" y="23" key="new project wizard/0.23.1440.786/1440.23.2560.1417@0.23.1440.786" timestamp="1583884139930" />
+    <state x="385" y="136" width="670" height="673" key="search.everywhere.popup" timestamp="1583978216802">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state x="385" y="136" width="670" height="673" key="search.everywhere.popup/0.23.1440.786@0.23.1440.786" timestamp="1583978216802" />
+    <state x="385" y="137" width="670" height="676" key="search.everywhere.popup/0.23.1440.790@0.23.1440.790" timestamp="1583974030091" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/app/controllers/ShipTrackerController.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/src/app/models/ShipTracker.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/app/controllers/ShipTrackerController.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/app/controllers/NavigationController.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/app/models/ShipTracker.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

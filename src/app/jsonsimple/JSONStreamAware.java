@@ -1,4 +1,4 @@
-package jsonsimple;
+package app.jsonsimple;
 
 import java.io.IOException;
 import java.io.Writer;

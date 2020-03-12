@@ -1,4 +1,4 @@
-package jsonsimple;
+package app.jsonsimple;
 
 import java.util.List;
 import java.util.Map;

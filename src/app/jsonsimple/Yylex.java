@@ -1,4 +1,4 @@
-package jsonsimple;
+package app.jsonsimple;
 
 class Yylex {
 

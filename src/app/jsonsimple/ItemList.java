@@ -1,4 +1,4 @@
-package jsonsimple;
+package app.jsonsimple;
 
 import java.util.ArrayList;
 import java.util.List;

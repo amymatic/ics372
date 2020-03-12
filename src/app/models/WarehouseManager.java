@@ -1,8 +1,8 @@
-package project1;
+package app.models;
 
 import java.io.*;
 import java.util.*;
-import jsonsimple.*;
+import app.jsonsimple.*;
 
 /**
  * The WarehouseManager class is responsible for keeping track of a group of
@@ -11,7 +11,7 @@ import jsonsimple.*;
  */
 public class WarehouseManager {
     
-    private ArrayList<Warehouse> warehouseList = new ArrayList<Warehouse>();
+    private ArrayList<Warehouse> warehouseList = new ArrayList<>();
 
     public WarehouseManager() {
     }
@@ -44,7 +44,7 @@ public class WarehouseManager {
     // is accepting shipments because it is meant to be used by the client only
     // to record where shipments are that have already been accepted.
     public void createExistingShipmentsFromJSON(String inputFile) throws
-        FileNotFoundException, IOException, ParseException {
+            IOException, ParseException {
             FileReader file = new FileReader(inputFile);
             JSONParser parser = new JSONParser();
             JSONObject shipmentsObject = (JSONObject) parser.parse(file);
@@ -102,9 +102,9 @@ public class WarehouseManager {
         }
         warehouseContents.put("warehouse_contents", shipmentsArray);
 
-        //Write JSON file
+        //Write JSON file - NOTE: since the directory reorganization, we will likely need to change this path
         try (FileWriter file =
-            new FileWriter("../../../target/warehouse_contents.json")) {
+            new FileWriter("/resources/warehouse_contents.json")) {
             file.write(warehouseContents.toJSONString());
             file.flush();
         } catch (IOException e) {

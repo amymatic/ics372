@@ -1,4 +1,4 @@
-package jsonsimple;
+package app.jsonsimple;
 
 /**
  * Beans that support customized output of JSON text shall implement this interface.  

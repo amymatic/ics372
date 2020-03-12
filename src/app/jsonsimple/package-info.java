@@ -5,4 +5,4 @@
 * @version 1.0
 * @author FangYidong<fangyidong@yahoo.com.cn>
 */
-package jsonsimple;
+package app.jsonsimple;

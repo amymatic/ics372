@@ -1,5 +1,3 @@
-//package project1;
-
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 

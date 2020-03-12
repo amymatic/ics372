@@ -1,8 +1,6 @@
-package project1;
+package app.models;
 
-import java.io.*;
-import java.util.*;
-import jsonsimple.*;
+import java.util.ArrayList;
 
 /**
  * The Warehouse class is responsible for keeping track of the shipments that

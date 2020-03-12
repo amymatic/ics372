@@ -3,12 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Pos?>
-<?import javafx.scene.Group?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<StackPane fx:id="warehouseReportPane" fx:controller="ShipTrackerController"
+<StackPane fx:id="warehouseReportPane" fx:controller="app.controllers.ShipTrackerController"
            xmlns="http://javafx.com/javafx/8.0.141"
            xmlns:fx="http://javafx.com/fxml/1"
            prefWidth="550">
