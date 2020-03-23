@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Warehouse {
 	private int warehouseID;
+	private String warehouseName;
 	private boolean receiving;
 	private ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 
@@ -28,6 +29,22 @@ public class Warehouse {
 	 */
 	public int getWarehouseID() {
 		return warehouseID;
+	}
+	
+	/**
+	 * The setWarehouseName method sets the warehouse name.
+	 * 
+	 */
+	public void setWarehouseName(String name) {
+		warehouseName = name;
+	}
+	
+	/**
+	 * The getWarehouseName method returns the name of the warehouse
+	 * @return The name of the warehouse
+	 */
+	public String getWarehouseName() {
+		return warehouseName;
 	}
 
 	/**
