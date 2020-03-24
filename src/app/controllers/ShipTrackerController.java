@@ -4,8 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.XML;
+
 
 /**
  * Main controller class for the entire layout application
@@ -63,10 +75,36 @@ public class ShipTrackerController {
     @FXML
     private StackPane shipmentReportPane;
 
-
     @FXML
-    protected void handleImportShipmentsClick(ActionEvent event) {
+    protected void handleImportShipmentsClick(ActionEvent event) throws JSONException, IOException {
+        String fileName ="src/resources/xmlFiles/";//to be determined by user selection
+        String data="";
+
+        //todo upload/select file from our project or anyhwere
         NavigationController.loadPage(NavigationController.IMPORT_SHIPMENTS);
+        ListView<String> listView = new ListView<>();
+
+        FileChooser fc = new FileChooser();
+        fc.setInitialDirectory(new File(fileName));
+        File selectedFile = fc.showOpenDialog(null);
+
+        listView.getItems().add(selectedFile.getName());
+        fileName += selectedFile.getName();
+
+        //todo convert xml to json
+        File myObj = new File(fileName);
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            data += myReader.nextLine();
+        }
+        myReader.close();
+        //convert to json
+        JSONObject obj = XML.toJSONObject(data);
+
+        //todo write to json
+        FileWriter myWriter = new FileWriter("src/resources/import.json");
+        myWriter.write(obj.toString());
+        myWriter.close();
     }
 
     @FXML
