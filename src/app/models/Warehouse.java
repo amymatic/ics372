@@ -11,6 +11,7 @@ public class Warehouse {
 	private int warehouseID;
 	private String warehouseName;
 	private boolean receiving;
+	private String name;
 	private ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 
 	/**
@@ -95,6 +96,31 @@ public class Warehouse {
 	 */
 	public boolean isFreightEnabled() {
 		return receiving;
+	}
+
+	/**
+	 * The setName method sets the name of the warehouse.
+	 * @param whName The name of the warehouse
+	 */
+	public void setName(String whName) {
+		name = whName;
+	}
+
+	/**
+	 * The getName method returns the name of the warehouse.
+	 * @return The name of the warehouse
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * The getNameByID method returns the name of the warehouse when an ID is provided.
+	 * @param whID The ID of the warehouse
+	 * @return The name of the warehouse
+	 */
+	public String getNameByID(int whID) {
+		return name;
 	}
 
 	/**
