@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 <?import javafx.geometry.Insets?>
 
 <StackPane fx:id="warehouseReportPane" fx:controller="app.controllers.ShipTrackerController"
@@ -11,7 +12,30 @@
     <GridPane hgap="10" vgap="10">
         <padding><Insets right="25" bottom="25" left="25"/></padding>
         <children>
-            <Label text="Warehouse Report. Select an option on the left"/>
+            <Label text="Warehouse Report" GridPane.columnIndex="0"
+                   GridPane.rowIndex="0" GridPane.columnSpan="2"
+                   GridPane.rowSpan="1" GridPane.halignment="LEFT">
+                <font>
+                    <Font name="Arial" size="20"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="20" bottom="20"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Show Warehouses" GridPane.columnIndex="0"
+                   GridPane.rowIndex="1" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <Button text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                    GridPane.columnSpan="1" GridPane.rowSpan="1"
+                    GridPane.halignment="LEFT" fx:id="getWarehousesButton">
+            </Button>
         </children>
     </GridPane>
 </StackPane>

@@ -24,6 +24,8 @@ public class ShipTracker extends Application {
      * @param args TBD
      */
     public static void main(String[] args) {
+        //loadWarehouses(warehouses.xml);
+        //loadShipments(shipments.xml);
         launch(args);
     }
 
@@ -118,4 +120,8 @@ public class ShipTracker extends Application {
 
         return scene;
     }
+
+    //private void loadWarehouses()
+
+
 }
