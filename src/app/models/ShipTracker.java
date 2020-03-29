@@ -17,15 +17,16 @@ import app.jsonsimple.*;
  */
 public class ShipTracker extends Application {
 
-    WarehouseManager warehouseMgr = new WarehouseManager();
+    //private static WarehouseManager warehouseMgr;
+    private static WarehouseManager warehouseMgr = new WarehouseManager();
 
     /**
      * The main method launches the GUI
      * @param args TBD
      */
-    public static void main(String[] args) {
-        //loadWarehouses(warehouses.xml);
-        //loadShipments(shipments.xml);
+    public static void main(String[] args) throws IOException, ParseException {
+        loadWarehouses("src/resources/warehouses.json");
+        loadShipments("src/resources/shipments.json");
         launch(args);
     }
 
@@ -121,7 +122,49 @@ public class ShipTracker extends Application {
         return scene;
     }
 
-    //private void loadWarehouses()
+    private static void loadWarehouses(String fileName) throws
+            IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        FileReader file = new FileReader(fileName);
+        JSONObject warehousesObject = (JSONObject) parser.parse(file);
+        JSONArray warehousesArray =
+                (JSONArray) warehousesObject.get("warehouses");
 
+        for ( Object warehouse : warehousesArray ) {
+            JSONObject warehouseObject = (JSONObject) warehouse;
+            String warehouseIdString =
+                    warehouseObject.get("warehouse_id").toString();
+            int warehouseId = Integer.parseInt(warehouseIdString);
+            warehouseMgr.addWarehouse(warehouseId);
+        }
+    }
 
+    private static void loadShipments(String fileName) throws
+            IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        FileReader file = new FileReader(fileName);
+        JSONObject shipmentsObject = (JSONObject) parser.parse(file);
+        JSONArray shipmentsArray =
+                (JSONArray) shipmentsObject.get("shipments");
+
+        for ( Object shipment : shipmentsArray ) {
+            JSONObject shipmentObject = (JSONObject) shipment;
+
+            int wID = Integer.parseInt(shipmentObject.get("warehouse_id").toString());
+            String sMode = (String) shipmentObject.get("shipment_method");
+            String sID = (String) shipmentObject.get("shipment_id");
+            float sWeight = Float.parseFloat(shipmentObject.get("weight").toString());
+            long rDate = (long) shipmentObject.get("receipt_date");
+
+            // Create the shipment
+            Shipment newShipment = new Shipment(sID, sMode, sWeight, wID, rDate);
+
+            // Add the shipment to the Warehouse's records
+            for (Warehouse wh : warehouseMgr.getWarehouses()) {
+                if (wh.getWarehouseID() == wID) {
+                    wh.recordShipment(newShipment);
+                }
+            }
+        }
+    }
 }
