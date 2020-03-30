@@ -3,6 +3,8 @@ package app.models;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sun.java2d.pipe.SpanShapeRenderer;
+
 import java.util.ArrayList;
 
 /**
@@ -13,12 +15,11 @@ import java.util.ArrayList;
 public class Warehouse {
 	private IntegerProperty warehouseID = new SimpleIntegerProperty();
 	private StringProperty warehouseName = new SimpleStringProperty();
-	private boolean airMode;
-	private boolean railMode;
-	private boolean truckMode;
-	private boolean shipMode;
-	private boolean receiving;
-	private StringProperty name = new SimpleStringProperty();
+	private BooleanProperty airMode = new SimpleBooleanProperty();
+	private BooleanProperty railMode = new SimpleBooleanProperty();
+	private BooleanProperty truckMode = new SimpleBooleanProperty();
+	private BooleanProperty shipMode = new SimpleBooleanProperty();
+	private BooleanProperty receiving = new SimpleBooleanProperty();
 	private ArrayList<Shipment> shipments = new ArrayList<>();
 	public ObservableList<Shipment> shipmentsList = FXCollections.observableArrayList(shipments);
 
@@ -50,7 +51,7 @@ public class Warehouse {
 		setRailMode(rail);
 		setTruckMode(truck);
 		setShipMode(ship);
-		setName(wName);
+		setWarehouseName(wName);
 		setReceiving(receive);
 	}
 
@@ -61,7 +62,21 @@ public class Warehouse {
 	public int getWarehouseID() {
 		return warehouseID.get();
 	}
-	
+
+	/**
+	 * The getWarehouseName method returns the name of the warehouse
+	 * @return The name of the warehouse
+	 */
+	public String getWarehouseName() {
+		return warehouseName.get();
+	}
+
+	public boolean getAirMode() { return airMode.get(); }
+	public boolean getRailMode() { return railMode.get(); }
+	public boolean getTruckMode() { return truckMode.get(); }
+	public boolean getShipMode() { return shipMode.get(); }
+	public boolean getReceiving() { return receiving.get(); }
+
 	/**
 	 * The setWarehouseName method sets the warehouse name.
 	 * 
@@ -69,25 +84,13 @@ public class Warehouse {
 	public void setWarehouseName(String name) {
 		warehouseName.set(name);
 	}
-	
-//	/**
-//	 * The getWarehouseName method returns the name of the warehouse
-//	 * @return The name of the warehouse
-//	 */
-//	public String getWarehouseName() {
-//		return warehouseName.get();
-//	}
 
-	public boolean hasAirMode() { return airMode; }
-	public boolean hasRailMode() { return railMode; }
-	public boolean hasTruckMode() { return truckMode; }
-	public boolean hasShipMode() { return shipMode; }
-
-	private void setWarehouseID(int id) { warehouseID.set(id); }
-	public void setAirMode(boolean mode) { airMode = mode; }
-	public void setRailMode(boolean mode) { railMode = mode; }
-	public void setTruckMode(boolean mode) { truckMode = mode; }
-	public void setShipMode(boolean mode) { shipMode = mode; }
+	public void setWarehouseID(int id) { warehouseID.set(id); }
+	public void setAirMode(boolean mode) { airMode.set(mode); }
+	public void setRailMode(boolean mode) { railMode.set(mode); }
+	public void setTruckMode(boolean mode) { truckMode.set(mode); }
+	public void setShipMode(boolean mode) { shipMode.set(mode); }
+	public void setReceiving(boolean receive) { receiving.set(receive); }
 
 	/**
 	 * The recordShipment method stores the shipment provided to the
@@ -108,29 +111,27 @@ public class Warehouse {
 	 */
 	public boolean addIncomingShipment(Shipment shipment) {
 		boolean shipmentAdded = false;
-		if (receiving) {
+		if (receiving.get()) {
 			recordShipment(shipment);
 			shipmentAdded = true;
 		}
 		return shipmentAdded;
 	}
 
-	private void setReceiving(boolean receive) { receiving = receive; }
-
-	/**
-	 * The enableFreightReceipt method sets the warehouse to receive freight.
-	 */
-	public void enableFreightReceipt() {
-		receiving = true;
-	}
-
-	/**
-	 * The disableFreightReceipt method sets the warehouse to stop receiving
-	 * freight.
-	 */
-	public void disableFreighReceipt() {
-		receiving = false;
-	}
+//	/**
+//	 * The enableFreightReceipt method sets the warehouse to receive freight.
+//	 */
+//	public void enableFreightReceipt() {
+//		receiving.set(true);
+//	}
+//
+//	/**
+//	 * The disableFreightReceipt method sets the warehouse to stop receiving
+//	 * freight.
+//	 */
+//	public void disableFreighReceipt() {
+//		receiving.set(false);
+//	}
 
 	/**
 	 * The isFreightEnabled method checks whether the warehouse is currently
@@ -138,23 +139,7 @@ public class Warehouse {
 	 * @return True if the warehouse is receiving freight and false if not
 	 */
 	public boolean isFreightEnabled() {
-		return receiving;
-	}
-
-	/**
-	 * The setName method sets the name of the warehouse.
-	 * @param whName The name of the warehouse
-	 */
-	public void setName(String whName) {
-		name.set(whName);
-	}
-
-	/**
-	 * The getName method returns the name of the warehouse.
-	 * @return The name of the warehouse
-	 */
-	public String getName() {
-		return name.get();
+		return receiving.get();
 	}
 
 	/**
@@ -163,7 +148,7 @@ public class Warehouse {
 	 * @return The name of the warehouse
 	 */
 	public String getNameByID(int whID) {
-		return name.get();
+		return warehouseName.get();
 	}
 
 	/**

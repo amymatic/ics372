@@ -5,6 +5,7 @@ import java.io.IOException;
 import app.controllers.NavigationController;
 import app.controllers.ShipTrackerController;
 import app.controllers.ShipmentsReportController;
+import app.controllers.WarehouseReportController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -69,6 +70,7 @@ public class ShipTracker extends Application {
         NavigationController.loadPage(NavigationController.IMPORT_SHIPMENTS);
 
         ShipmentsReportController.setMainController(shipTrackerController);
+        WarehouseReportController.setMainController(shipTrackerController);
 
         return mainPane;
     }

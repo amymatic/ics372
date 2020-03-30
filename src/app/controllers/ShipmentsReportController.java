@@ -7,10 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableView;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ShipmentsReportController {
@@ -41,23 +39,13 @@ public class ShipmentsReportController {
         displayShipments();
     }
 
-    public static void loadPage(String fxml) {
-        try {
-            shipTrackerController.setPage(
-                    FXMLLoader.load(ShipmentsReportController.class.getResource(fxml))
-            );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     @FXML
     public void loadWarehouses() {
         warehouses.removeAll(warehouses);
         ArrayList<String> warehouseNames = new ArrayList<>();
         warehouseNames.add("All Warehouses");
         for ( Warehouse wh : ShipTracker.warehouseMgr.getWarehouses()) {
-            warehouseNames.add(wh.getName());
+            warehouseNames.add(wh.getWarehouseName());
         }
         warehouses.addAll(warehouseNames);
         warehouseChoiceBox.setItems(warehouses);

@@ -132,7 +132,7 @@ public class Shipment {
     private final void setWarehouseName(int whID) {
         for ( Warehouse wh: ShipTracker.warehouseMgr.getWarehouses()) {
             if (whID == wh.getWarehouseID()) {
-                currentWarehouseName.set(wh.getName());
+                currentWarehouseName.set(wh.getWarehouseName());
             }
         }
     }
