@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <warehouse_contents>
+        <warehouse_id>12513</warehouse_id>
+        <shipment_method>air</shipment_method>
+        <shipment_id>4fdfdj</shipment_id>
+        <weight>94</weight>
+        <receipt_date>1515354694451</receipt_date>
+    </warehouse_contents>
+    <warehouse_contents>
+        <warehouse_id>15566</warehouse_id>
+        <shipment_method>truck</shipment_method>
+        <shipment_id>1dfd4</shipment_id>
+        <weight>204</weight>
+        <receipt_date>1515354694451</receipt_date>
+    </warehouse_contents>
+    <warehouse_contents>
+        <warehouse_id>15566</warehouse_id>
+        <shipment_method>ship</shipment_method>
+        <shipment_id>1af545</shipment_id>
+        <weight>30.6</weight>
+        <receipt_date>1515354694451</receipt_date>
+    </warehouse_contents>
+    <warehouse_contents>
+        <warehouse_id>336558</warehouse_id>
+        <shipment_method>rail</shipment_method>
+        <shipment_id>85faa5</shipment_id>
+        <weight>460</weight>
+        <receipt_date>1515354694451</receipt_date>
+    </warehouse_contents>
+</root>

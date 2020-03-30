@@ -7,10 +7,22 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
+
+import javafx.scene.control.ListView;
+import javafx.stage.FileChooser;
+import org.json.JSONObject;
+import org.json.XML;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import com.oracle.javafx.jmx.json.JSONException;
+
 /**
  * Main controller class for the entire layout application
  */
 public class ShipTrackerController {
+
     @FXML
     private StackPane pageHolder;
 
@@ -68,6 +80,46 @@ public class ShipTrackerController {
     protected void handleImportShipmentsClick(ActionEvent event) {
         NavigationController.loadPage(NavigationController.IMPORT_SHIPMENTS);
     }
+
+    @FXML 
+    protected void importShipmentsClick() throws JSONException, IOException, org.json.JSONException {
+
+        String fileName ="src/resources/otherFiles/";
+        String data="";
+
+        //Upload/select file from our project or anyhwere
+        NavigationController.loadPage(NavigationController.IMPORT_SHIPMENTS);
+        ListView<String> listView = new ListView<>();
+
+        FileChooser fc = new FileChooser();
+        fc.setInitialDirectory(new File(fileName));
+        File selectedFile = fc.showOpenDialog(null);
+
+        listView.getItems().add(selectedFile.getName());
+        fileName += selectedFile.getName();
+
+        System.out.println(fileName);
+
+        //Convert xml to json
+        File myObj = new File(fileName);
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            data += myReader.nextLine();
+        }
+        myReader.close();
+
+        //convert to json
+        JSONObject obj = null;
+        obj = XML.toJSONObject(data);
+
+        //write to json
+        FileWriter myWriter = new FileWriter("src/resources/import.json");
+        myWriter.write(obj.toString(4));
+        myWriter.close();
+
+    }
+
+
 
     @FXML
     protected void handleAddWarehouseClick(ActionEvent event) {

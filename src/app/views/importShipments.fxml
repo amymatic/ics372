@@ -34,7 +34,7 @@
             </Label>
             <Button text="Browse" GridPane.columnIndex="0" GridPane.rowIndex="2"
                     GridPane.columnSpan="1" GridPane.rowSpan="1"
-                    GridPane.halignment="LEFT" fx:id="searchFilesButton">
+                    GridPane.halignment="LEFT" fx:id="searchFilesButton" onAction="#importShipmentsClick">
             </Button>
         </children>
     </GridPane>
