@@ -2,30 +2,30 @@
   "warehouses": [
     {
       "warehouse_id": "12513",
-      "air": "true",
-      "rail": "true",
-      "truck": "true",
-      "ship": "false",
+      "air": true,
+      "rail": true,
+      "truck": true,
+      "ship": false,
       "name": "Airport Main",
-      "receiving": "true"
+      "receiving": true
     },
     {
       "warehouse_id": "15566",
-      "air": "false",
-      "rail": "false",
-      "truck": "true",
-      "ship": "true",
+      "air": false,
+      "rail": false,
+      "truck": true,
+      "ship": true,
       "name": "Port East",
-      "receiving": "true"
+      "receiving": true
     },
     {
       "warehouse_id": "336558",
-      "air": "false",
-      "rail": "true",
-      "truck": "true",
-      "ship": "false",
+      "air": false,
+      "rail": true,
+      "truck": true,
+      "ship": false,
       "name": "Depot South",
-      "receiving": "true"
+      "receiving": true
     }
   ]
 }
