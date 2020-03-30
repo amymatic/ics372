@@ -48,7 +48,7 @@ public class WarehouseManager {
     public Warehouse getWarehouseByName(String name) {
         Warehouse warehouse = null;
         for ( Warehouse wh : this.getWarehouses() ) {
-            if (wh.getName().equals(name)) {
+            if (wh.getWarehouseName().equals(name)) {
                 warehouse = wh;
             }
         }
