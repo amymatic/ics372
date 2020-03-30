@@ -14,7 +14,7 @@ public class NavigationController {
     /**
      * Convenience constants for fxml layouts managed by the navigator.
      */
-    public static final String MAIN    = "/app/views/shiptracker.fxml";
+    public static final String MAIN = "/app/views/shiptracker.fxml";
     public static final String IMPORT_SHIPMENTS = "/app/views/importShipments.fxml";
     public static final String ADD_WAREHOUSE = "/app/views/addWarehouse.fxml";
     public static final String MANAGE_WAREHOUSE = "/app/views/manageWarehouse.fxml";
@@ -55,11 +55,7 @@ public class NavigationController {
     public static void loadPage(String fxml) {
         try {
             shipTrackerController.setPage(
-                    FXMLLoader.load(
-                            NavigationController.class.getResource(
-                                    fxml
-                            )
-                    )
+                    FXMLLoader.load(NavigationController.class.getResource(fxml))
             );
         } catch (IOException e) {
             e.printStackTrace();

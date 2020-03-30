@@ -1,5 +1,8 @@
 package app.models;
 
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
 /**
@@ -8,11 +11,16 @@ import java.util.ArrayList;
  * are currently accepting shipments or not.
  */
 public class Warehouse {
-	private int warehouseID;
-	private String warehouseName;
+	private IntegerProperty warehouseID = new SimpleIntegerProperty();
+	private StringProperty warehouseName = new SimpleStringProperty();
+	private boolean airMode;
+	private boolean railMode;
+	private boolean truckMode;
+	private boolean shipMode;
 	private boolean receiving;
-	private String name;
-	private ArrayList<Shipment> shipments = new ArrayList<Shipment>();
+	private StringProperty name = new SimpleStringProperty();
+	private ArrayList<Shipment> shipments = new ArrayList<>();
+	public ObservableList<Shipment> shipmentsList = FXCollections.observableArrayList(shipments);
 
 	/**
 	 * The Warehouse constructor creates a warehouse and assigns it the ID
@@ -21,7 +29,29 @@ public class Warehouse {
 	 * @param whID The ID assigned to the new warehouse
 	 */
 	public Warehouse(int whID) {
-		warehouseID = whID;
+		setWarehouseID(whID);
+	}
+
+	/**
+	 * The Warehouse constructor creates a warehouse and assigns it the ID
+	 * provided as an argument. Note that a client of this method would need
+	 * to ensure the ID provided is unique.
+	 * @param whID The ID assigned to the new warehouse
+	 * @param air Whether the warehouse handles air shipments
+	 * @param rail Whether the warehouse handles rail shipments
+	 * @param truck Whether the warehouse handles truck shipments
+	 * @param ship Whether the warehouse handles ship shipments
+	 * @param wName The name of the warehouse
+	 * @param receive Whether the warehouse is receiving shipments
+	 */
+	public Warehouse(int whID, boolean air, boolean rail, boolean truck, boolean ship, String wName, boolean receive) {
+		setWarehouseID(whID);
+		setAirMode(air);
+		setRailMode(rail);
+		setTruckMode(truck);
+		setShipMode(ship);
+		setName(wName);
+		setReceiving(receive);
 	}
 
 	/**
@@ -29,7 +59,7 @@ public class Warehouse {
 	 * @return The ID of the warehouse
 	 */
 	public int getWarehouseID() {
-		return warehouseID;
+		return warehouseID.get();
 	}
 	
 	/**
@@ -37,16 +67,27 @@ public class Warehouse {
 	 * 
 	 */
 	public void setWarehouseName(String name) {
-		warehouseName = name;
+		warehouseName.set(name);
 	}
 	
-	/**
-	 * The getWarehouseName method returns the name of the warehouse
-	 * @return The name of the warehouse
-	 */
-	public String getWarehouseName() {
-		return warehouseName;
-	}
+//	/**
+//	 * The getWarehouseName method returns the name of the warehouse
+//	 * @return The name of the warehouse
+//	 */
+//	public String getWarehouseName() {
+//		return warehouseName.get();
+//	}
+
+	public boolean hasAirMode() { return airMode; }
+	public boolean hasRailMode() { return railMode; }
+	public boolean hasTruckMode() { return truckMode; }
+	public boolean hasShipMode() { return shipMode; }
+
+	private void setWarehouseID(int id) { warehouseID.set(id); }
+	public void setAirMode(boolean mode) { airMode = mode; }
+	public void setRailMode(boolean mode) { railMode = mode; }
+	public void setTruckMode(boolean mode) { truckMode = mode; }
+	public void setShipMode(boolean mode) { shipMode = mode; }
 
 	/**
 	 * The recordShipment method stores the shipment provided to the
@@ -73,6 +114,8 @@ public class Warehouse {
 		}
 		return shipmentAdded;
 	}
+
+	private void setReceiving(boolean receive) { receiving = receive; }
 
 	/**
 	 * The enableFreightReceipt method sets the warehouse to receive freight.
@@ -103,7 +146,7 @@ public class Warehouse {
 	 * @param whName The name of the warehouse
 	 */
 	public void setName(String whName) {
-		name = whName;
+		name.set(whName);
 	}
 
 	/**
@@ -111,7 +154,7 @@ public class Warehouse {
 	 * @return The name of the warehouse
 	 */
 	public String getName() {
-		return name;
+		return name.get();
 	}
 
 	/**
@@ -120,7 +163,7 @@ public class Warehouse {
 	 * @return The name of the warehouse
 	 */
 	public String getNameByID(int whID) {
-		return name;
+		return name.get();
 	}
 
 	/**
@@ -130,5 +173,9 @@ public class Warehouse {
 	 */
 	public ArrayList<Shipment> getShipments() {
 		return shipments;
+	}
+
+	public ObservableList<Shipment> getShipmentsList() {
+		return shipmentsList;
 	}
 }
