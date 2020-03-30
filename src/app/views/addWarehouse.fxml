@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.geometry.Insets?>
 
-<StackPane fx:controller="app.controllers.ShipTrackerController"
+<StackPane fx:controller="app.controllers.AddWarehouseController"
            fx:id="addWarehousePane"
            xmlns="http://javafx.com/javafx/8.0.141"
            xmlns:fx="http://javafx.com/fxml/1"
@@ -23,7 +23,7 @@
                     <Insets top="20" bottom="20"/>
                 </GridPane.margin>
             </Label>
-            <Label text="Warehouse ID (required, integers only)" GridPane.columnIndex="0"
+            <Label text="Warehouse ID" GridPane.columnIndex="0"
                    GridPane.rowIndex="1" GridPane.columnSpan="1"
                    GridPane.rowSpan="1" GridPane.halignment="RIGHT">
                 <font>
@@ -51,7 +51,7 @@
                        GridPane.columnSpan="1" GridPane.rowSpan="1"
                        GridPane.halignment="LEFT" fx:id="warehouseNameField">
             </TextField>
-            <Label text="Warehouse Receiving?" GridPane.columnIndex="0"
+            <Label text="Offers Air Shipping?" GridPane.columnIndex="0"
                    GridPane.rowIndex="3" GridPane.columnSpan="1"
                    GridPane.rowSpan="1" GridPane.halignment="RIGHT">
                 <font>
@@ -61,13 +61,69 @@
                     <Insets top="5" bottom="5"/>
                 </GridPane.margin>
             </Label>
-            <ChoiceBox GridPane.columnIndex="1" GridPane.rowIndex="3"
-                       GridPane.columnSpan="1" GridPane.rowSpan="1"
-                       GridPane.halignment="LEFT" fx:id="receivingChoiceBox">
-            </ChoiceBox>
-            <Button text="Create Warehouse" GridPane.columnIndex="0" GridPane.rowIndex="4"
+            <RadioButton GridPane.columnIndex="1" GridPane.rowIndex="3"
+                          GridPane.columnSpan="1" GridPane.rowSpan="1"
+                          GridPane.halignment="LEFT" fx:id="airModeRadioButton">
+            </RadioButton>
+            <Label text="Offers Rail Shipping?" GridPane.columnIndex="0"
+                   GridPane.rowIndex="4" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <RadioButton GridPane.columnIndex="1" GridPane.rowIndex="4"
+                          GridPane.columnSpan="1" GridPane.rowSpan="1"
+                          GridPane.halignment="LEFT" fx:id="railModeRadioButton">
+            </RadioButton>
+            <Label text="Offers Truck Shipping?" GridPane.columnIndex="0"
+                   GridPane.rowIndex="5" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <RadioButton GridPane.columnIndex="1" GridPane.rowIndex="5"
+                          GridPane.columnSpan="1" GridPane.rowSpan="1"
+                          GridPane.halignment="LEFT" fx:id="truckModeRadioButton">
+            </RadioButton>
+            <Label text="Offers Ship Shipping?" GridPane.columnIndex="0"
+                   GridPane.rowIndex="6" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <RadioButton GridPane.columnIndex="1" GridPane.rowIndex="6"
+                          GridPane.columnSpan="1" GridPane.rowSpan="1"
+                          GridPane.halignment="LEFT" fx:id="shipModeRadioButton">
+            </RadioButton>
+            <Label text="Is Receiving Shipments?" GridPane.columnIndex="0"
+                   GridPane.rowIndex="7" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <RadioButton GridPane.columnIndex="1" GridPane.rowIndex="7"
+                          GridPane.columnSpan="1" GridPane.rowSpan="1"
+                          GridPane.halignment="LEFT" fx:id="receivingRadioButton">
+            </RadioButton>
+            <Button text="Create Warehouse" GridPane.columnIndex="0" GridPane.rowIndex="8"
                     GridPane.columnSpan="1" GridPane.rowSpan="1"
-                    GridPane.halignment="LEFT" fx:id="addWarehouseButton">
+                    GridPane.halignment="LEFT" fx:id="addWarehouseButton" onAction="#handleAddWarehouseButtonClick">
             </Button>
         </children>
     </GridPane>

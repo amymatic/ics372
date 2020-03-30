@@ -4,8 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import app.controllers.NavigationController;
 import app.controllers.ShipTrackerController;
-import app.controllers.ShipmentsReportController;
-import app.controllers.WarehouseReportController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +16,6 @@ import app.jsonsimple.*;
  * management software.
  */
 public class ShipTracker extends Application {
-
     public static WarehouseManager warehouseMgr = new WarehouseManager();
 
     /**
@@ -28,7 +25,6 @@ public class ShipTracker extends Application {
     public static void main(String[] args) throws IOException, ParseException {
         loadWarehouses("src/resources/warehouses.json");
         loadShipments("src/resources/shipments.json");
-        System.out.println("Warehouses (main): " + warehouseMgr.getWarehouses().size());
         launch(args);
     }
 
@@ -68,9 +64,6 @@ public class ShipTracker extends Application {
 
         NavigationController.setMainController(shipTrackerController);
         NavigationController.loadPage(NavigationController.IMPORT_SHIPMENTS);
-
-        ShipmentsReportController.setMainController(shipTrackerController);
-        WarehouseReportController.setMainController(shipTrackerController);
 
         return mainPane;
     }

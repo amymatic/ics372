@@ -14,24 +14,14 @@ import java.util.ArrayList;
 public class ShipmentsReportController {
     private static ObservableList<String> warehouses = FXCollections.observableArrayList();
     private ObservableList<Shipment> shipments = FXCollections.observableArrayList();
+
     @FXML
     public ChoiceBox<String> warehouseChoiceBox;
     @FXML
     public TableView<Shipment> shipmentTable;
 
-    private static ShipTrackerController shipTrackerController;
-
     public void initialize() {
         loadWarehouses();
-    }
-
-    /**
-     * Stores the main controller for later use in navigation tasks.
-     *
-     * @param controller the main application layout controller
-     */
-    public static void setMainController(ShipTrackerController controller) {
-        ShipmentsReportController.shipTrackerController = controller;
     }
 
     @FXML
