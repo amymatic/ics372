@@ -144,7 +144,7 @@ public class WarehouseManager {
 
         //Write JSON file - NOTE: since the directory reorganization, we will likely need to change this path
         try (FileWriter file =
-            new FileWriter("/resources/warehouse_contents.json")) {
+            new FileWriter("src/resources/warehouse_contents.json")) {
             file.write(warehouseContents.toJSONString());
             file.flush();
         } catch (IOException e) {
