@@ -19,6 +19,8 @@ public class ShipmentsReportController {
     public ChoiceBox<String> warehouseChoiceBox;
     @FXML
     public TableView<Shipment> shipmentTable;
+    @FXML
+    public String readableReceivedAt;
 
     public void initialize() {
         loadWarehouses();
