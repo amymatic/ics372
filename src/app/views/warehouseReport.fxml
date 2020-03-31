@@ -5,10 +5,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.geometry.Insets?>
 
-<StackPane fx:id="warehouseReportPane" fx:controller="app.controllers.ShipTrackerController"
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?>
+<StackPane fx:id="warehouseReportPane" fx:controller="app.controllers.WarehouseReportController"
            xmlns="http://javafx.com/javafx/8.0.141"
            xmlns:fx="http://javafx.com/fxml/1"
-           prefWidth="550">
+           prefWidth="650">
     <GridPane hgap="10" vgap="10">
         <padding><Insets right="25" bottom="25" left="25"/></padding>
         <children>
@@ -34,8 +36,60 @@
             </Label>
             <Button text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="2"
                     GridPane.columnSpan="1" GridPane.rowSpan="1"
-                    GridPane.halignment="LEFT" fx:id="getWarehousesButton">
+                    GridPane.halignment="LEFT" fx:id="getWarehousesButton" onAction="#handleWarehouseReportButtonClick">
             </Button>
+            <VBox prefHeight="400" prefWidth="600" GridPane.columnIndex="0" GridPane.rowIndex="3"
+                  GridPane.columnSpan="2" GridPane.rowSpan="1" GridPane.halignment="CENTER">
+                <children>
+                    <GridPane VBox.vgrow="ALWAYS">
+                        <TableView editable="true" minWidth="650"
+                                   fx:id="warehouseTable">
+                            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                            <columns>
+                                <TableColumn text="ID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="warehouseID"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Name">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="warehouseName"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Air?">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="airMode"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Rail?">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="railMode"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Truck?">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="truckMode"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Ship?">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="shipMode"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Receiving?">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="receiving"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                </FXCollections>
+                            </items>
+                        </TableView>
+                    </GridPane>
+                </children>
+            </VBox>
         </children>
     </GridPane>
 </StackPane>

@@ -15,7 +15,7 @@
         <ColumnConstraints minWidth="150" prefWidth="150"
                            maxWidth="Infinity" halignment="LEFT">
         </ColumnConstraints>
-        <ColumnConstraints minWidth="600" prefWidth="600"
+        <ColumnConstraints minWidth="700" prefWidth="700"
                            maxWidth="Infinity" hgrow="ALWAYS">
         </ColumnConstraints>
     </columnConstraints>
@@ -46,7 +46,7 @@
     </VBox>
 
     <!-- Add main pane -->
-    <VBox prefHeight="400" prefWidth="550" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <VBox prefHeight="400" prefWidth="650" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <children>
             <StackPane fx:id="pageHolder" VBox.vgrow="ALWAYS" />
         </children>

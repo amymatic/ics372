@@ -16,9 +16,7 @@ import app.jsonsimple.*;
  * management software.
  */
 public class ShipTracker extends Application {
-
-    //private static WarehouseManager warehouseMgr;
-    private static WarehouseManager warehouseMgr = new WarehouseManager();
+    public static WarehouseManager warehouseMgr = new WarehouseManager();
 
     /**
      * The main method launches the GUI
@@ -30,39 +28,6 @@ public class ShipTracker extends Application {
         launch(args);
     }
 
-    /**
-     * NOTE: THis is not currently used as it was for Assignment 1 - TBD if still useful.
-     * The setupWarehouses method is a private method that is run prior to
-     * reading and storing the shipments, to ensure that the necessary
-     * warehouses exist. Note that this client of WarehouseManager is
-     * validating to ensure each warehouse ID in its inventory is unique.
-     * @param fileName The name of the file
-     */
-    private void setupWarehouses(String fileName) throws
-            IOException, ParseException {
-        JSONParser parser = new JSONParser();
-        FileReader file = new FileReader(fileName);
-        JSONObject shipmentsObject = (JSONObject) parser.parse(file);
-        JSONArray shipmentsArray =
-                (JSONArray) shipmentsObject.get("example");
-
-        for ( Object shipment : shipmentsArray ) {
-            JSONObject shipmentObject = (JSONObject) shipment;
-            boolean warehouseExists = false;
-            String warehouseIdString =
-                    shipmentObject.get("warehouse_id").toString();
-            int warehouseId = Integer.parseInt(warehouseIdString);
-            for ( Warehouse wh : warehouseMgr.getWarehouses() ) {
-                if (wh.getWarehouseID() == warehouseId) {
-                    warehouseExists = true;
-                    break;
-                }
-            }
-            if (!warehouseExists) {
-                warehouseMgr.addWarehouse(warehouseId);
-            }
-        }
-    }
     @Override
     public void start(Stage stage) throws Exception{
         stage.setTitle("ShipTracker");
@@ -122,30 +87,43 @@ public class ShipTracker extends Application {
         return scene;
     }
 
+    /**
+     * The loadWarehouses method is a private method that loads all warehouses into the system
+     * before the program is launched.
+     * @param fileName The name of the file
+     */
     private static void loadWarehouses(String fileName) throws
             IOException, ParseException {
         JSONParser parser = new JSONParser();
         FileReader file = new FileReader(fileName);
         JSONObject warehousesObject = (JSONObject) parser.parse(file);
-        JSONArray warehousesArray =
-                (JSONArray) warehousesObject.get("warehouses");
+        JSONArray warehousesArray = (JSONArray) warehousesObject.get("warehouses");
 
         for ( Object warehouse : warehousesArray ) {
             JSONObject warehouseObject = (JSONObject) warehouse;
-            String warehouseIdString =
-                    warehouseObject.get("warehouse_id").toString();
-            int warehouseId = Integer.parseInt(warehouseIdString);
-            warehouseMgr.addWarehouse(warehouseId);
+
+            int wId = Integer.parseInt(warehouseObject.get("warehouse_id").toString());
+            boolean air = (boolean) warehouseObject.get("air");
+            boolean rail = (boolean) warehouseObject.get("rail");
+            boolean truck = (boolean) warehouseObject.get("truck");
+            boolean ship = (boolean) warehouseObject.get("ship");
+            String wName = warehouseObject.get("name").toString();
+            boolean wReceiving = (boolean) warehouseObject.get("receiving");
+            warehouseMgr.addWarehouse(wId, air, rail, truck, ship, wName, wReceiving);
         }
     }
 
+    /**
+     * The loadShipments method is a private method that loads all shipments into the system
+     * before the program is launched.
+     * @param fileName The name of the file
+     */
     private static void loadShipments(String fileName) throws
             IOException, ParseException {
         JSONParser parser = new JSONParser();
         FileReader file = new FileReader(fileName);
         JSONObject shipmentsObject = (JSONObject) parser.parse(file);
-        JSONArray shipmentsArray =
-                (JSONArray) shipmentsObject.get("shipments");
+        JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("shipments");
 
         for ( Object shipment : shipmentsArray ) {
             JSONObject shipmentObject = (JSONObject) shipment;
