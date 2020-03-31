@@ -48,7 +48,7 @@ class WarehouseManagerTest {
 		
 		wm.writeAllShipmentsToJSON();
 		
-		assertEquals(true, new File("src/resources/warehouse_contents.json").exists());
+		assertEquals(true, new File("src/resources/shipments.json").exists());
 		
 	}
 
