@@ -3,8 +3,6 @@ package app.models;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sun.java2d.pipe.SpanShapeRenderer;
-
 import java.util.ArrayList;
 
 /**
@@ -71,20 +69,17 @@ public class Warehouse {
 		return warehouseName.get();
 	}
 
+	// The get methods for the Warehouse fields
 	public boolean getAirMode() { return airMode.get(); }
 	public boolean getRailMode() { return railMode.get(); }
 	public boolean getTruckMode() { return truckMode.get(); }
 	public boolean getShipMode() { return shipMode.get(); }
 	public boolean getReceiving() { return receiving.get(); }
 
-	/**
-	 * The setWarehouseName method sets the warehouse name.
-	 * 
-	 */
+	// The set methods for the Warehouse fields
 	public void setWarehouseName(String name) {
 		warehouseName.set(name);
 	}
-
 	public void setWarehouseID(int id) { warehouseID.set(id); }
 	public void setAirMode(boolean mode) { airMode.set(mode); }
 	public void setRailMode(boolean mode) { railMode.set(mode); }
@@ -118,21 +113,6 @@ public class Warehouse {
 		return shipmentAdded;
 	}
 
-//	/**
-//	 * The enableFreightReceipt method sets the warehouse to receive freight.
-//	 */
-//	public void enableFreightReceipt() {
-//		receiving.set(true);
-//	}
-//
-//	/**
-//	 * The disableFreightReceipt method sets the warehouse to stop receiving
-//	 * freight.
-//	 */
-//	public void disableFreighReceipt() {
-//		receiving.set(false);
-//	}
-
 	/**
 	 * The isFreightEnabled method checks whether the warehouse is currently
 	 * receiving freight or not.
@@ -143,24 +123,11 @@ public class Warehouse {
 	}
 
 	/**
-	 * The getNameByID method returns the name of the warehouse when an ID is provided.
-	 * @param whID The ID of the warehouse
-	 * @return The name of the warehouse
-	 */
-	public String getNameByID(int whID) {
-		return warehouseName.get();
-	}
-
-	/**
 	 * The getShipments method returns the shipments currently located at the
 	 * warehouse.
 	 * @return The shipments located at the warehouse as an array list
 	 */
 	public ArrayList<Shipment> getShipments() {
 		return shipments;
-	}
-
-	public ObservableList<Shipment> getShipmentsList() {
-		return shipmentsList;
 	}
 }

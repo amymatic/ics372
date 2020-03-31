@@ -93,7 +93,6 @@ public class Shipment {
     }
 
     public final String getCurrentWarehouseName() { return currentWarehouseName.get(); }
-    public final String getReadableReceivedAt() { return readableReceivedAt.get(); }
 
     /**
      * The getReceivedAt method returns the timestamp the shipment was
@@ -141,10 +140,6 @@ public class Shipment {
      * The setReceiptTime method records the timestamp the shipment is accepted
      * at the warehouse
      */
-    public final void setReceiptTime() {
-        receivedAt.set(Instant.now().toEpochMilli());
-    }
-
     public final void setReceiptTime(long time) {
         receivedAt.set(time);
         setReadableReceiptTime(time);

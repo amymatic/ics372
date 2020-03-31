@@ -36,7 +36,7 @@
             </Label>
             <ChoiceBox GridPane.columnIndex="1" GridPane.rowIndex="1"
                        GridPane.columnSpan="1" GridPane.rowSpan="1"
-                       GridPane.halignment="LEFT" fx:id="warehouseChoiceBox">
+                       GridPane.halignment="LEFT" fx:id="warehouseChoiceBox" value="All Warehouses">
                 <items>
                     <FXCollections fx:factory="observableArrayList"/>
                 </items>

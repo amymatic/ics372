@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.geometry.Insets?>
 
-<StackPane fx:id="manageShipmentPane" fx:controller="app.controllers.ShipTrackerController"
+<StackPane fx:id="manageShipmentPane" fx:controller="app.controllers.ManageShipmentController"
            xmlns="http://javafx.com/javafx/8.0.141"
            xmlns:fx="http://javafx.com/fxml/1"
            prefWidth="650">
@@ -34,11 +34,73 @@
             </Label>
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"
                        GridPane.columnSpan="1" GridPane.rowSpan="1"
-                       GridPane.halignment="LEFT" fx:id="shipmentIDField">
+                       GridPane.halignment="LEFT" fx:id="selectedShipmentIDField">
             </TextField>
-            <Button text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="2"
+            <Button text="Submit" GridPane.columnIndex="2" GridPane.rowIndex="1"
                     GridPane.columnSpan="1" GridPane.rowSpan="1"
-                    GridPane.halignment="LEFT" fx:id="getShipmentButton">
+                    GridPane.halignment="LEFT" fx:id="searchShipmentsButton"
+                    onAction="#handleSearchShipmentsButtonClick" >
+            </Button>
+            <Label text="Shipment ID" GridPane.columnIndex="0"
+                   GridPane.rowIndex="2" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"
+                       GridPane.columnSpan="1" GridPane.rowSpan="1"
+                       GridPane.halignment="LEFT" fx:id="shipmentIDField" editable="false">
+            </TextField>
+            <Label text="Shipment Weight" GridPane.columnIndex="0"
+                   GridPane.rowIndex="3" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"
+                       GridPane.columnSpan="1" GridPane.rowSpan="1"
+                       GridPane.halignment="LEFT" fx:id="shipmentWeightField" editable="false">
+            </TextField>
+            <Label text="Shipping Mode" GridPane.columnIndex="0"
+                   GridPane.rowIndex="4" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <ChoiceBox GridPane.columnIndex="1" GridPane.rowIndex="4"
+                       GridPane.columnSpan="1" GridPane.rowSpan="1"
+                       GridPane.halignment="LEFT" fx:id="shippingModeChoiceBox">
+            </ChoiceBox>
+            <Label text="Available Warehouses" GridPane.columnIndex="0"
+                   GridPane.rowIndex="5" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="RIGHT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <ChoiceBox GridPane.columnIndex="1" GridPane.rowIndex="5"
+                       GridPane.columnSpan="1" GridPane.rowSpan="1"
+                       GridPane.halignment="LEFT" fx:id="warehouseChoiceBox">
+            </ChoiceBox>
+            <Button text="Update Warehouse" GridPane.columnIndex="0" GridPane.rowIndex="6"
+                    GridPane.columnSpan="1" GridPane.rowSpan="1"
+                    GridPane.halignment="LEFT" fx:id="updateWarehouseButton"
+                    onAction="#handleUpdateShipmentButtonClick">
             </Button>
         </children>
     </GridPane>
