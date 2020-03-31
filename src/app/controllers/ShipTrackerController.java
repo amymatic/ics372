@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 
+
 /**
  * Main controller class for the entire layout application
  */
@@ -18,6 +19,7 @@ public class ShipTrackerController {
     @FXML protected void handleImportShipmentsClick(ActionEvent event) {
         NavigationController.loadPage("/app/views/importShipments.fxml");
     }
+
     @FXML
     protected void handleAddWarehouseClick(ActionEvent event) {
         NavigationController.loadPage("/app/views/addWarehouse.fxml");
@@ -42,4 +44,5 @@ public class ShipTrackerController {
     protected void handleShipmentReportClick(ActionEvent event) {
         NavigationController.loadPage("/app/views/shipmentReport.fxml");
     }
+
 }
