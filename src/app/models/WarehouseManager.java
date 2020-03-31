@@ -32,6 +32,10 @@ public class WarehouseManager {
         warehouses.add(warehouse);
     }
 
+    public void addWarehouse(Warehouse warehouse) {
+        warehouses.add(warehouse);
+    }
+
     /**
      * The addWarehouse method creates a new Warehouse object and adds it to
      * the WarehouseManager array list. Clients will need to handle validation
