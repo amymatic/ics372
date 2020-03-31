@@ -4,7 +4,6 @@ import app.helpers.AlertHelper;
 import app.models.ShipTracker;
 import app.models.Warehouse;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableBooleanValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,13 +19,8 @@ import java.util.ArrayList;
 
 public class ManageWarehouseController {
     private static ObservableList<String> warehouses = FXCollections.observableArrayList();
+    private ArrayList<Warehouse> warehouseList = ShipTracker.warehouseMgr.getWarehouses();
     private Warehouse warehouse;
-    //private ObservableList<Warehouse> warehouseList = FXCollections.observableArrayList();
-//    private ObservableBooleanValue airMode;
-//    private ObservableBooleanValue railMode;
-//    private ObservableBooleanValue truckMode;
-//    private ObservableBooleanValue shipMode;
-//    private ObservableBooleanValue receiving;
 
     @FXML
     public ChoiceBox<String> warehouseChoiceBox;
@@ -59,6 +53,7 @@ public class ManageWarehouseController {
         warehouse.setShipMode(shipModeRadioButton.selectedProperty().getValue());
         warehouse.setReceiving(receivingRadioButton.selectedProperty().getValue());
 
+        updateWarehouseDataStore();
         AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, manageWarehousePane.getScene().getWindow(),
                 "Success", "Warehouse Updated");
     }
@@ -92,5 +87,7 @@ public class ManageWarehouseController {
         });
     }
 
-
+    private void updateWarehouseDataStore() {
+        ShipTracker.warehouseMgr.writeWarehousesToJSON(warehouseList);
+    }
 }

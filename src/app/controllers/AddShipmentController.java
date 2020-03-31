@@ -18,7 +18,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;

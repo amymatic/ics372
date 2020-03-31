@@ -151,4 +151,29 @@ public class WarehouseManager {
             e.printStackTrace();
         }
     }
+
+    public void writeWarehousesToJSON(ArrayList<Warehouse> whList) {
+        JSONObject warehouseContents = new JSONObject();
+        JSONArray warehouseArray = new JSONArray();
+        for ( Warehouse wh : whList ) {
+            JSONObject warehouse = new JSONObject();
+            warehouse.put("warehouse_id", wh.getWarehouseID());
+            warehouse.put("name", wh.getWarehouseName());
+            warehouse.put("air", wh.getAirMode());
+            warehouse.put("rail", wh.getRailMode());
+            warehouse.put("truck", wh.getTruckMode());
+            warehouse.put("ship", wh.getShipMode());
+            warehouse.put("receiving", wh.getReceiving());
+            warehouseArray.add(warehouse);
+        }
+        warehouseContents.put("warehouses", warehouseArray);
+
+        //Write JSON file
+        try (FileWriter file = new FileWriter("src/resources/warehouses.json")) {
+            file.write(warehouseContents.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
