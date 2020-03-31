@@ -93,6 +93,7 @@ public class Shipment {
     }
 
     public final String getCurrentWarehouseName() { return currentWarehouseName.get(); }
+    public final String getReadableReceivedAt() { return readableReceivedAt.get(); }
 
     /**
      * The getReceivedAt method returns the timestamp the shipment was

@@ -12,11 +12,7 @@ import javafx.collections.ObservableList;
  * writes warehouse contents to JSON.
  */
 public class WarehouseManager {
-    
-    public static final List<String> SHIPPING_MODES = Arrays.asList("Air", "Rail", "Truck", "Ship");
     private ArrayList<Warehouse> warehouses = new ArrayList<>();
-    public ObservableList<Warehouse> warehouseList = FXCollections.observableArrayList(warehouses);
-
 
     public WarehouseManager() {
     }
@@ -100,6 +96,9 @@ public class WarehouseManager {
                         wh.recordShipment(shipment);
                     }
                 }
+
+                // Add the shipment to the data store
+                addShipmentToDataStore(shipment);
             }
     }
 
@@ -163,6 +162,30 @@ public class WarehouseManager {
         try (FileWriter file = new FileWriter("src/resources/warehouses.json")) {
             file.write(warehouseContents.toJSONString());
             file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addShipmentToDataStore(Shipment shipment) throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        FileReader file = new FileReader("src/resources/shipments.json");
+        JSONObject shipmentsObject = (JSONObject) parser.parse(file);
+        JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("shipments");
+        JSONObject shipmentObject = new JSONObject();
+        shipmentObject.put("shipment_id", shipment.getShipmentID());
+        shipmentObject.put("weight", shipment.getShipmentWeight());
+        shipmentObject.put("warehouse_id", shipment.getWarehouseID());
+        shipmentObject.put("shipment_method", shipment.getShipmentMode());
+        shipmentObject.put("receipt_date", shipment.getReceivedAt());
+
+        shipmentsArray.add(shipmentObject);
+        shipmentsObject.put("shipments", shipmentsArray);
+
+        //Write JSON file
+        try (FileWriter updatedFile = new FileWriter("src/resources/shipments.json")) {
+            updatedFile.write(shipmentsObject.toJSONString());
+            updatedFile.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
