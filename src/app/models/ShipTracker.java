@@ -32,12 +32,7 @@ public class ShipTracker extends Application {
     public void start(Stage stage) throws Exception{
         stage.setTitle("ShipTracker");
 
-        stage.setScene(
-                createScene(
-                        loadMainPane()
-                )
-        );
-
+        stage.setScene(createScene(loadMainPane()));
         stage.show();
     }
 
@@ -75,15 +70,7 @@ public class ShipTracker extends Application {
      * @return the created scene
      */
     private Scene createScene(Pane mainPane) {
-        Scene scene = new Scene(
-                mainPane
-        );
-
-        // Aspirational - we can add styling later if we get to it...
-        /*scene.getStylesheets().setAll(
-                getClass().getResource("/resources/shiptracker.css").toExternalForm()
-        );*/
-
+        Scene scene = new Scene(mainPane);
         return scene;
     }
 

@@ -51,12 +51,12 @@ public class AddShipmentController {
     protected void handleAddShipmentButtonClick(ActionEvent event)throws IOException, ParseException {
         if(shipmentIDField.getText().isEmpty()) {
             AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
-                    "Form Error!", "Please enter the warehouse ID");
+                    "Form Error!", "Please enter the shipment ID");
             return;
         }
         if(shipmentWeightField.getText().isEmpty()) {
             AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
-                    "Form Error!", "Please enter the warehouse name");
+                    "Form Error!", "Please enter the shipment weight");
             return;
         }
         if(shippingModeChoiceBox.getSelectionModel().isEmpty()) {
@@ -68,6 +68,15 @@ public class AddShipmentController {
             AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
                     "Form Error!", "Please select a warehouse");
             return;
+        }
+        if(!shipmentWeightField.getText().isEmpty()) {
+            try {
+                Float.parseFloat(shipmentWeightField.getText());
+            } catch (NumberFormatException ex) {
+                AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
+                        "Form Error!", "Please enter the shipment weight in numerals");
+                return;
+            }
         }
 
         String shID = shipmentIDField.getText();

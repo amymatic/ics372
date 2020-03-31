@@ -26,13 +26,8 @@ public class WarehouseManager {
      * the WarehouseManager array list. Clients will need to handle validation
      * to ensure the warehouses in their WarehouseManager are unique. This
      * method will add any warehouse, even if the warehouseId is not unique.
-     * @param warehouseID The ID that the new warehouse will be assigned
+     * @param warehouse The new warehouse that will be added to the warehouse manager
      */
-    public void addWarehouse(int warehouseID) {
-        Warehouse warehouse = new Warehouse(warehouseID);
-        warehouses.add(warehouse);
-    }
-
     public void addWarehouse(Warehouse warehouse) {
         warehouses.add(warehouse);
     }
@@ -67,10 +62,6 @@ public class WarehouseManager {
      */
     public ArrayList<Warehouse> getWarehouses() {
         return warehouses;
-    }
-
-    public ObservableList<Warehouse> getWarehouseList() {
-        return warehouseList;
     }
 
     /**
@@ -140,11 +131,11 @@ public class WarehouseManager {
                 shipmentsArray.add(shipment);
             }
         }
-        warehouseContents.put("warehouse_contents", shipmentsArray);
+        warehouseContents.put("shipments", shipmentsArray);
 
-        //Write JSON file - NOTE: since the directory reorganization, we will likely need to change this path
+        //Write JSON file
         try (FileWriter file =
-            new FileWriter("/resources/warehouse_contents.json")) {
+            new FileWriter("src/resources/shipments.json")) {
             file.write(warehouseContents.toJSONString());
             file.flush();
         } catch (IOException e) {
