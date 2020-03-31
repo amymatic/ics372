@@ -13,12 +13,20 @@ import javafx.collections.ObservableList;
  */
 public class WarehouseManager {
     
-    public static final List<String> SHIPPING_MODES = Arrays.asList("Air", "Rail", "Truck", "Ship");
     private ArrayList<Warehouse> warehouses = new ArrayList<>();
     public ObservableList<Warehouse> warehouseList = FXCollections.observableArrayList(warehouses);
 
+    //make the constructor private so that this class cannot be instantiated directly
+    private WarehouseManager(){
 
-    public WarehouseManager() {
+    }
+
+    //create an object of SingleObject
+    private static WarehouseManager instance = new WarehouseManager();
+
+    //Get the only object available
+    public static WarehouseManager getInstance(){
+        return instance;
     }
 
     /**
@@ -30,10 +38,6 @@ public class WarehouseManager {
      */
     public void addWarehouse(int warehouseID) {
         Warehouse warehouse = new Warehouse(warehouseID);
-        warehouses.add(warehouse);
-    }
-
-    public void addWarehouse(Warehouse warehouse) {
         warehouses.add(warehouse);
     }
 
@@ -144,32 +148,7 @@ public class WarehouseManager {
 
         //Write JSON file - NOTE: since the directory reorganization, we will likely need to change this path
         try (FileWriter file =
-            new FileWriter("/resources/warehouse_contents.json")) {
-            file.write(warehouseContents.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void writeWarehousesToJSON(ArrayList<Warehouse> whList) {
-        JSONObject warehouseContents = new JSONObject();
-        JSONArray warehouseArray = new JSONArray();
-        for ( Warehouse wh : whList ) {
-            JSONObject warehouse = new JSONObject();
-            warehouse.put("warehouse_id", wh.getWarehouseID());
-            warehouse.put("name", wh.getWarehouseName());
-            warehouse.put("air", wh.getAirMode());
-            warehouse.put("rail", wh.getRailMode());
-            warehouse.put("truck", wh.getTruckMode());
-            warehouse.put("ship", wh.getShipMode());
-            warehouse.put("receiving", wh.getReceiving());
-            warehouseArray.add(warehouse);
-        }
-        warehouseContents.put("warehouses", warehouseArray);
-
-        //Write JSON file
-        try (FileWriter file = new FileWriter("src/resources/warehouses.json")) {
+            new FileWriter("src/resources/warehouse_contents.json")) {//todo
             file.write(warehouseContents.toJSONString());
             file.flush();
         } catch (IOException e) {
