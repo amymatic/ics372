@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
  */
 public class WarehouseManager {
     
+    public static final List<String> SHIPPING_MODES = Arrays.asList("Air", "Rail", "Truck", "Ship");
     private ArrayList<Warehouse> warehouses = new ArrayList<>();
     public ObservableList<Warehouse> warehouseList = FXCollections.observableArrayList(warehouses);
 
