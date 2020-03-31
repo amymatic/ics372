@@ -1,6 +1,9 @@
 package app.controllers;
 
 import app.helpers.AlertHelper;
+import app.jsonsimple.JSONArray;
+import app.jsonsimple.JSONObject;
+import app.jsonsimple.JSONParser;
 import app.jsonsimple.ParseException;
 import app.models.ShipTracker;
 import app.models.Shipment;
@@ -15,6 +18,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -25,7 +31,6 @@ public class AddShipmentController {
     private ObservableList<String> railWarehouses = FXCollections.observableArrayList();
     private ObservableList<String> truckWarehouses = FXCollections.observableArrayList();
     private ObservableList<String> shipWarehouses = FXCollections.observableArrayList();
-    private AlertHelper alerter;
 
     @FXML
     public ChoiceBox<String> shippingModeChoiceBox;
@@ -46,22 +51,22 @@ public class AddShipmentController {
     @FXML
     protected void handleAddShipmentButtonClick(ActionEvent event)throws IOException, ParseException {
         if(shipmentIDField.getText().isEmpty()) {
-            alerter.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
+            AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
                     "Form Error!", "Please enter the warehouse ID");
             return;
         }
         if(shipmentWeightField.getText().isEmpty()) {
-            alerter.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
+            AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
                     "Form Error!", "Please enter the warehouse name");
             return;
         }
         if(shippingModeChoiceBox.getSelectionModel().isEmpty()) {
-            alerter.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
+            AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
                     "Form Error!", "Please select the shipping mode");
             return;
         }
         if(warehouseChoiceBox.getSelectionModel().isEmpty()) {
-            alerter.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
+            AlertHelper.showAlert(Alert.AlertType.ERROR, addShipmentPane.getScene().getWindow(),
                     "Form Error!", "Please select a warehouse");
             return;
         }
@@ -76,9 +81,9 @@ public class AddShipmentController {
         Shipment newShipment = new Shipment(shID, mode, shWeight, whID, received);
         ShipTracker.warehouseMgr.getWarehouseByName(whName).addIncomingShipment(newShipment);
 
-        //addShipmentToDataStore(newShipment);
+        addShipmentToDataStore(newShipment);
 
-        alerter.showAlert(Alert.AlertType.CONFIRMATION, addShipmentPane.getScene().getWindow(),
+        AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, addShipmentPane.getScene().getWindow(),
                 "Success", "Shipment created");
     }
 
@@ -121,6 +126,30 @@ public class AddShipmentController {
                 if (wh.getTruckMode()) { truckWarehouses.add(wh.getWarehouseName()); }
                 if (wh.getShipMode()) { shipWarehouses.add(wh.getWarehouseName()); }
             }
+        }
+    }
+
+    private void addShipmentToDataStore(Shipment shipment) throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        FileReader file = new FileReader("src/resources/shipments.json");
+        JSONObject shipmentsObject = (JSONObject) parser.parse(file);
+        JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("shipments");
+        JSONObject shipmentObject = new JSONObject();
+        shipmentObject.put("shipment_id", shipment.getShipmentID());
+        shipmentObject.put("weight", shipment.getShipmentWeight());
+        shipmentObject.put("warehouse_id", shipment.getWarehouseID());
+        shipmentObject.put("shipment_method", shipment.getShipmentMode());
+        shipmentObject.put("receipt_date", shipment.getReceivedAt());
+
+        shipmentsArray.add(shipmentObject);
+        shipmentsObject.put("shipments", shipmentsArray);
+
+        //Write JSON file
+        try (FileWriter updatedFile = new FileWriter("src/resources/shipments.json")) {
+            updatedFile.write(shipmentsObject.toJSONString());
+            updatedFile.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

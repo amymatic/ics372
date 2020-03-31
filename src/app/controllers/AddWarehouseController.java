@@ -18,8 +18,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class AddWarehouseController {
-    private AlertHelper alerter;
-
     @FXML
     private StackPane addWarehousePane;
     @FXML
@@ -40,12 +38,12 @@ public class AddWarehouseController {
     @FXML
     protected void handleAddWarehouseButtonClick(ActionEvent event) throws IOException, ParseException {
         if(warehouseIDField.getText().isEmpty()) {
-            alerter.showAlert(Alert.AlertType.ERROR, addWarehousePane.getScene().getWindow(),
+            AlertHelper.showAlert(Alert.AlertType.ERROR, addWarehousePane.getScene().getWindow(),
                     "Form Error!", "Please enter the warehouse ID");
             return;
         }
         if(warehouseNameField.getText().isEmpty()) {
-            alerter.showAlert(Alert.AlertType.ERROR, addWarehousePane.getScene().getWindow(),
+            AlertHelper.showAlert(Alert.AlertType.ERROR, addWarehousePane.getScene().getWindow(),
                     "Form Error!", "Please enter the warehouse name");
             return;
         }
@@ -53,7 +51,7 @@ public class AddWarehouseController {
             try {
                 Integer.parseInt(warehouseIDField.getText());
             } catch (NumberFormatException ex) {
-                alerter.showAlert(Alert.AlertType.ERROR, addWarehousePane.getScene().getWindow(),
+                AlertHelper.showAlert(Alert.AlertType.ERROR, addWarehousePane.getScene().getWindow(),
                         "Form Error!", "Please enter the warehouse ID in integers");
                 return;
             }
@@ -71,7 +69,7 @@ public class AddWarehouseController {
         ShipTracker.warehouseMgr.addWarehouse(newWarehouse);
         addWarehouseToDataStore(newWarehouse);
 
-        alerter.showAlert(Alert.AlertType.CONFIRMATION, addWarehousePane.getScene().getWindow(),
+        AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, addWarehousePane.getScene().getWindow(),
                 "Success", "Warehouse created");
     }
 
