@@ -17,6 +17,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ImportShipmentsController {
@@ -123,6 +124,9 @@ public class ImportShipmentsController {
                 String sID = sh.getShipmentID();
                 String sMode = sh.getShipmentMode().toLowerCase();
                 float sWeight = sh.getShipmentWeight();
+//                if (sh.getWeightUnit().toLowerCase().equals("kg")) {
+//                    sWeight = convertKgsToLbs(sWeight);
+//                }
                 int wID = wh.getWarehouseID();
                 long rDate = sh.getReceivedAt();
                 Shipment shipment = new Shipment(sID, sMode, sWeight, wID, rDate);
@@ -130,5 +134,12 @@ public class ImportShipmentsController {
                 ShipTracker.warehouseMgr.addShipmentToDataStore(shipment);
             }
         }
+    }
+
+    private float convertKgsToLbs(float weight) {
+        DecimalFormat df = new DecimalFormat("0.00");
+//        weight *= 2.20462;
+//        df.format(weight * 2.20462);
+        return (Float.parseFloat(df.format(weight * 2.20462)));
     }
 }
