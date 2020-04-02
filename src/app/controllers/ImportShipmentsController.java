@@ -108,11 +108,11 @@ public class ImportShipmentsController {
     private ArrayList<Warehouse> getNewWarehouses(WarehouseManager whManager) {
         ArrayList<Warehouse> newWarehouses = new ArrayList<Warehouse>();
         for ( Warehouse newWH : whManager.getWarehouses() ) {
-            boolean isNew = true;
+            boolean exists = false;
             for ( Warehouse wh : ShipTracker.warehouseMgr.getWarehouses() ) {
-                if (newWH.getWarehouseID() == wh.getWarehouseID()) { isNew = false; }
+                if (newWH.getWarehouseID() == wh.getWarehouseID()) { exists = true; }
             }
-            if (isNew) { newWarehouses.add(newWH); }
+            if (!exists) { newWarehouses.add(newWH); }
         }
         return newWarehouses;
     }

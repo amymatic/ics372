@@ -63,7 +63,7 @@ public class Warehouse {
 	 * The getWarehouseID method returns the ID of the warehouse.
 	 * @return The ID of the warehouse
 	 */
-	@XmlAttribute(name = "wid")
+	@XmlAttribute(name = "id")
 	public int getWarehouseID() {
 		return warehouseID.get();
 	}
