@@ -24,12 +24,12 @@ class WarehouseManagerTest {
 	@Test
 	void testCreateExistingShipmentsFromJSON() {
 		
-		wm.addWarehouse(12513);
+		wm.addWarehouse(new Warehouse(12513, true, true, true, true, "Warehouse", true));
 		
 		try {
 			wm.createExistingShipmentsFromJSON("src/resources/example.json");
-			ArrayList<Warehouse> warehouse = wm.getWarehouses();
-			assertEquals(12513, warehouse.get(0).getShipments().get(0).getWarehouseID());
+			Warehouse warehouse = wm.getWarehouseByName("Warehouse");
+			assertEquals(12513, warehouse.getShipments().get(0).getWarehouseID());
 		} catch (IOException | ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,6 +49,16 @@ class WarehouseManagerTest {
 		wm.writeAllShipmentsToJSON();
 		
 		assertEquals(true, new File("src/resources/shipments.json").exists());
+		
+	}
+	
+	@Test
+	void testWriteWarehousesToJSON() {
+		
+		wm.addWarehouse(new Warehouse(12513, true, true, true, true, "Warehouse", true));
+		wm.writeWarehousesToJSON(wm.getWarehouses());
+		
+		assertEquals(true, new File("src/resources/warehouses.json").exists());
 		
 	}
 

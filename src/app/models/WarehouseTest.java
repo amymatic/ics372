@@ -95,12 +95,6 @@ class WarehouseTest {
 	}
 
 	@Test
-	void testGetNameByID() {
-		
-		assertEquals("Warehouse", warehouse.getNameByID(12345));
-	}
-
-	@Test
 	void testGetShipmentsList() {
 		warehouse.addIncomingShipment(new Shipment("6575ffh", "Air", (float)100.8));
 		ArrayList<Shipment> shipments = warehouse.getShipments();
