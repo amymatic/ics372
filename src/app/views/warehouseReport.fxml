@@ -36,7 +36,7 @@
                                    fx:id="warehouseTable">
                             <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
                             <columns>
-                                <TableColumn text="ID">
+                                <TableColumn text="WH ID">
                                     <cellValueFactory>
                                         <PropertyValueFactory property="warehouseID"/>
                                     </cellValueFactory>

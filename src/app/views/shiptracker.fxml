@@ -35,13 +35,13 @@
     <!-- Add left nav -->
     <VBox prefWidth="150" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <children>
-            <Hyperlink text="Import Shipments" fx:id="importShipmentsLink" onAction="#handleImportShipmentsClick"/>
-            <Hyperlink text="Add Warehouse" fx:id="addWarehouseLink" onAction="#handleAddWarehouseClick"/>
-            <Hyperlink text="Manage Warehouse" fx:id="manageWarehouseLink" onAction="#handleManageWarehouseClick"/>
+            <Hyperlink text="Shipment Report" fx:id="shipmentReportLink" onAction="#handleShipmentReportClick"/>
+            <Hyperlink text="Warehouse Report" fx:id="warehouseReportLink" onAction="#handleWarehouseReportClick"/>
             <Hyperlink text="Add Shipment" fx:id="addShipmentLink" onAction="#handleAddShipmentClick"/>
             <Hyperlink text="Manage Shipment" fx:id="manageShipmentLink" onAction="#handleManageShipmentClick"/>
-            <Hyperlink text="Warehouse Report" fx:id="warehouseReportLink" onAction="#handleWarehouseReportClick"/>
-            <Hyperlink text="Shipment Report" fx:id="shipmentReportLink" onAction="#handleShipmentReportClick"/>
+            <Hyperlink text="Add Warehouse" fx:id="addWarehouseLink" onAction="#handleAddWarehouseClick"/>
+            <Hyperlink text="Manage Warehouse" fx:id="manageWarehouseLink" onAction="#handleManageWarehouseClick"/>
+            <Hyperlink text="Import Shipments" fx:id="importShipmentsLink" onAction="#handleImportShipmentsClick"/>
         </children>
     </VBox>
 

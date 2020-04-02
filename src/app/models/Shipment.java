@@ -14,6 +14,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleLongProperty;
 
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+
 /**
  * The Shipment class keeps track of the ID, weight, location, and other
  * metadata about a shipment.
@@ -27,6 +31,7 @@ public class Shipment {
     private LongProperty receivedAt = new SimpleLongProperty();
     private StringProperty readableReceivedAt = new SimpleStringProperty();
 
+    public Shipment() {}
     /**
      * This Shipment constructor sets all the attributes of a shipment.
      * @param shipID The ID of the shipment
@@ -63,6 +68,7 @@ public class Shipment {
      * The getShipmentID method returns the value of the property.
      * @return The ID of the shipment, as a String
      */
+    @XmlAttribute(name = "id")
     public final String getShipmentID() {
         return shipmentID.get();
     }
@@ -71,6 +77,7 @@ public class Shipment {
      * The getShipmentMode method returns the value of the shipping mode.
      * @return The way the shipment is being sent, as a String
      */
+    @XmlAttribute(name = "type")
     public final String getShipmentMode() {
         return shipmentMode.get();
     }
@@ -79,6 +86,7 @@ public class Shipment {
      * The getShipmentWeight method returns the weight of the shipment.
      * @return The shipment weight, as a float
      */
+    @XmlElement(name = "Weight")
     public final float getShipmentWeight() {
         return shipmentWeight.get();
     }
@@ -100,6 +108,7 @@ public class Shipment {
      * received at the warehouse.
      * @return The shipment receipt timestamp, in ms since the UNIX Epoch
      */
+    @XmlElement(name = "ReceiptDate")
     public final long getReceivedAt() {
         return receivedAt.get();
     }

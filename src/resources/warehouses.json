@@ -1,7 +1,7 @@
 {
   "warehouses": [
     {
-      "warehouse_id": "12513",
+      "warehouse_id": "1",
       "air": true,
       "rail": true,
       "truck": true,
@@ -10,7 +10,7 @@
       "receiving": true
     },
     {
-      "warehouse_id": "15566",
+      "warehouse_id": "2",
       "air": false,
       "rail": false,
       "truck": true,
@@ -19,7 +19,7 @@
       "receiving": true
     },
     {
-      "warehouse_id": "336558",
+      "warehouse_id": "3",
       "air": false,
       "rail": true,
       "truck": true,

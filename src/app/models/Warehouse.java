@@ -4,12 +4,17 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * The Warehouse class is responsible for keeping track of the shipments that
  * are located at the warehouse. Warehouses also keep track of whether they
  * are currently accepting shipments or not.
  */
+@XmlRootElement
 public class Warehouse {
 	private IntegerProperty warehouseID = new SimpleIntegerProperty();
 	private StringProperty warehouseName = new SimpleStringProperty();
@@ -21,6 +26,7 @@ public class Warehouse {
 	private ArrayList<Shipment> shipments = new ArrayList<>();
 	public ObservableList<Shipment> shipmentsList = FXCollections.observableArrayList(shipments);
 
+	public Warehouse() {}
 	/**
 	 * The Warehouse constructor creates a warehouse and assigns it the ID
 	 * provided as an argument. Note that a client of this method would need
@@ -57,6 +63,7 @@ public class Warehouse {
 	 * The getWarehouseID method returns the ID of the warehouse.
 	 * @return The ID of the warehouse
 	 */
+	@XmlAttribute(name = "wid")
 	public int getWarehouseID() {
 		return warehouseID.get();
 	}
@@ -65,6 +72,7 @@ public class Warehouse {
 	 * The getWarehouseName method returns the name of the warehouse
 	 * @return The name of the warehouse
 	 */
+	@XmlAttribute(name = "name")
 	public String getWarehouseName() {
 		return warehouseName.get();
 	}
@@ -127,6 +135,7 @@ public class Warehouse {
 	 * warehouse.
 	 * @return The shipments located at the warehouse as an array list
 	 */
+	@XmlElement(name = "Shipment")
 	public ArrayList<Shipment> getShipments() {
 		return shipments;
 	}

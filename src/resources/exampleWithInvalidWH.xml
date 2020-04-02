@@ -1,0 +1,19 @@
+<Shipments>
+    <Warehouse id="9" name="Warehouse 120">
+        <Shipment type="Air" id="ship19">
+            <Weight unit="kg">20.6</Weight>
+        </Shipment>
+        <Shipment type="Truck" id="ship20">
+            <Weight unit="kg">73</Weight>
+            <ReceiptDate>1732239329</ReceiptDate>
+        </Shipment>
+        <Shipment type="Ship" id="ship21">
+            <Weight unit="lb">802</Weight>
+            <ReceiptDate>1732299329</ReceiptDate>
+        </Shipment>
+        <Shipment type="Rail" id="ship22">
+            <Weight unit="lb">291</Weight>
+            <ReceiptDate>1732279329</ReceiptDate>
+        </Shipment>
+    </Warehouse>
+</Shipments>

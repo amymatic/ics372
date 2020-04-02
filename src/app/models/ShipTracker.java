@@ -58,7 +58,7 @@ public class ShipTracker extends Application {
         ShipTrackerController shipTrackerController = loader.getController();
 
         NavigationController.setMainController(shipTrackerController);
-        NavigationController.loadPage(NavigationController.IMPORT_SHIPMENTS);
+        NavigationController.loadPage(NavigationController.SHIPMENT_REPORT);
 
         return mainPane;
     }

@@ -15,13 +15,13 @@ public class NavigationController {
      * Convenience constants for fxml layouts managed by the navigator.
      */
     public static final String MAIN = "/app/views/shiptracker.fxml";
-    public static final String IMPORT_SHIPMENTS = "/app/views/importShipments.fxml";
-    public static final String ADD_WAREHOUSE = "/app/views/addWarehouse.fxml";
-    public static final String MANAGE_WAREHOUSE = "/app/views/manageWarehouse.fxml";
+    public static final String SHIPMENT_REPORT = "/app/views/shipmentReport.fxml";
+    public static final String WAREHOUSE_REPORT = "/app/views/warehouseReport.fxml";
     public static final String ADD_SHIPMENT = "/app/views/addShipment.fxml";
     public static final String MANAGE_SHIPMENT = "/app/views/manageShipment.fxml";
-    public static final String WAREHOUSE_REPORT = "/app/views/warehouseReport.fxml";
-    public static final String SHIPMENT_REPORT = "/app/views/shipmentReport.fxml";
+    public static final String ADD_WAREHOUSE = "/app/views/addWarehouse.fxml";
+    public static final String MANAGE_WAREHOUSE = "/app/views/manageWarehouse.fxml";
+    public static final String IMPORT_SHIPMENTS = "/app/views/importShipments.fxml";
 
     /** The main application layout controller. */
     private static ShipTrackerController shipTrackerController;
