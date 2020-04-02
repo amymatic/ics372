@@ -1,7 +1,6 @@
 package app.models;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -14,9 +13,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleLongProperty;
 
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
 
 /**
  * The Shipment class keeps track of the ID, weight, location, and other
@@ -30,6 +27,8 @@ public class Shipment {
     private StringProperty currentWarehouseName = new SimpleStringProperty();
     private LongProperty receivedAt = new SimpleLongProperty();
     private StringProperty readableReceivedAt = new SimpleStringProperty();
+    private StringProperty weightUnit = new SimpleStringProperty();
+    //private WeightHelper weightHelper = new WeightHelper();
 
     public Shipment() {}
     /**
@@ -90,6 +89,8 @@ public class Shipment {
     public final float getShipmentWeight() {
         return shipmentWeight.get();
     }
+
+    public final String getWeightUnit() { return weightUnit.get(); }
 
     /**
      * The getWarehouseID method returns the ID of the warehouse housing the
