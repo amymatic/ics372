@@ -22,8 +22,39 @@
                     <Insets top="20" bottom="20"/>
                 </GridPane.margin>
             </Label>
-            <Label text="Select File(s)" GridPane.columnIndex="0"
-                   GridPane.rowIndex="1" GridPane.columnSpan="1"
+            <Label text="Select JSON File" GridPane.columnIndex="0"
+                   GridPane.rowIndex="1" GridPane.columnSpan="2"
+                   GridPane.rowSpan="1" GridPane.halignment="LEFT">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <Button text="Browse" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                    GridPane.columnSpan="1" GridPane.rowSpan="1"
+                    GridPane.halignment="LEFT" fx:id="searchJSONFilesButton"
+                    onAction="#handleSearchJSONFilesButtonClick">
+            </Button>
+            <Label text="(no file selected)" GridPane.columnIndex="0"
+                   GridPane.rowIndex="3" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="LEFT" fx:id="selectedJSONFileLabel">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <Button text="Import Shipments From JSON" GridPane.columnIndex="0" GridPane.rowIndex="4"
+                    GridPane.columnSpan="1" GridPane.rowSpan="1"
+                    GridPane.halignment="LEFT" fx:id="importJSONShipmentsButton"
+                    onAction="#handleImportJSONShipmentsButtonClick">
+            </Button>
+            <Label/>
+            <Label text=" " GridPane.columnIndex="0"
+                   GridPane.rowIndex="5" GridPane.columnSpan="1"
                    GridPane.rowSpan="1" GridPane.halignment="RIGHT">
                 <font>
                     <Font name="Arial" size="16"/>
@@ -32,14 +63,9 @@
                     <Insets top="5" bottom="5"/>
                 </GridPane.margin>
             </Label>
-            <Button text="Browse" GridPane.columnIndex="1" GridPane.rowIndex="1"
-                    GridPane.columnSpan="1" GridPane.rowSpan="1"
-                    GridPane.halignment="LEFT" fx:id="searchFilesButton"
-                    onAction="#handleSearchFilesButtonClick">
-            </Button>
-            <Label text="(no file selected)" GridPane.columnIndex="0"
-                   GridPane.rowIndex="2" GridPane.columnSpan="2"
-                   GridPane.rowSpan="1" GridPane.halignment="LEFT" fx:id="selectedFilesLabel">
+            <Label text="Select XML File" GridPane.columnIndex="0"
+                   GridPane.rowIndex="6" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="LEFT">
                 <font>
                     <Font name="Arial" size="16"/>
                 </font>
@@ -47,10 +73,25 @@
                     <Insets top="5" bottom="5"/>
                 </GridPane.margin>
             </Label>
-            <Button text="Import Shipments" GridPane.columnIndex="0" GridPane.rowIndex="3"
+            <Button text="Browse" GridPane.columnIndex="0" GridPane.rowIndex="7"
                     GridPane.columnSpan="1" GridPane.rowSpan="1"
-                    GridPane.halignment="LEFT" fx:id="importShipmentsButton"
-                    onAction="#handleImportShipmentsButtonClick">
+                    GridPane.halignment="LEFT" fx:id="searchXMLFilesButton"
+                    onAction="#handleSearchXMLFilesButtonClick">
+            </Button>
+            <Label text="(no file selected)" GridPane.columnIndex="0"
+                   GridPane.rowIndex="8" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="LEFT" fx:id="selectedXMLFileLabel">
+                <font>
+                    <Font name="Arial" size="16"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5"/>
+                </GridPane.margin>
+            </Label>
+            <Button text="Import Shipments From XML" GridPane.columnIndex="0" GridPane.rowIndex="9"
+                    GridPane.columnSpan="1" GridPane.rowSpan="1"
+                    GridPane.halignment="LEFT" fx:id="importXMLShipmentsButton"
+                    onAction="#handleImportXMLShipmentsButtonClick">
             </Button>
         </children>
     </GridPane>

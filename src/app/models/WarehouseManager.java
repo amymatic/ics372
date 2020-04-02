@@ -6,11 +6,15 @@ import app.jsonsimple.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * The WarehouseManager class is responsible for keeping track of a group of
  * warehouses. It reads and stores existing shipments from JSON files, and
  * writes warehouse contents to JSON.
  */
+@XmlRootElement(name = "Shipments")
 public class WarehouseManager {
     private ArrayList<Warehouse> warehouses = new ArrayList<>();
 
@@ -51,11 +55,32 @@ public class WarehouseManager {
         return warehouse;
     }
 
+    public Warehouse getWarehouseByID(int id) {
+        Warehouse warehouse = null;
+        for ( Warehouse wh : this.getWarehouses() ) {
+            if (wh.getWarehouseID() == id) {
+                warehouse = wh;
+            }
+        }
+        return warehouse;
+    }
+
+    public boolean validWarehouse(int id) {
+        boolean isValid = false;
+        for ( Warehouse wh : this.getWarehouses() ) {
+            if (wh.getWarehouseID() == id) {
+                isValid = true;
+            }
+        }
+        return isValid;
+    }
+
     /**
      * The getWarehouses method returns the WarehouseManager's list of
      * warehouses.
      * @return The list of warehouses
      */
+    @XmlElement(name = "Warehouse")
     public ArrayList<Warehouse> getWarehouses() {
         return warehouses;
     }
@@ -70,36 +95,31 @@ public class WarehouseManager {
      * @throws IOException If the input or output encounters a problem
      * @throws ParseException If the file cannot be parsed
      */
-    public void createExistingShipmentsFromJSON(String inputFile) throws
-            IOException, ParseException {
-            FileReader file = new FileReader(inputFile);
-            JSONParser parser = new JSONParser();
-            JSONObject shipmentsObject = (JSONObject) parser.parse(file);
-            JSONArray shipmentsArray = (JSONArray)
-                shipmentsObject.get("warehouse_contents");
+    public ArrayList<String> createExistingShipmentsFromJSON(String inputFile) throws IOException, ParseException {
+        FileReader file = new FileReader(inputFile);
+        JSONParser parser = new JSONParser();
+        JSONObject shipmentsObject = (JSONObject) parser.parse(file);
+        JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("warehouse_contents");
+        ArrayList<String> invalidShipments = new ArrayList<String>();
 
-            for (Object object : shipmentsArray) {
-                JSONObject jsonShipment = (JSONObject) object;
+        for (Object object : shipmentsArray) {
+            JSONObject jsonShipment = (JSONObject) object;
 
-                int wID = Integer.parseInt(jsonShipment.get("warehouse_id").toString());
-                String sMode = (String) jsonShipment.get("shipment_method");
-                String sID = (String) jsonShipment.get("shipment_id");
-                float sWeight = Float.parseFloat(jsonShipment.get("weight").toString());
-                long rDate = (long) jsonShipment.get("receipt_date");
+            int wID = Integer.parseInt(jsonShipment.get("warehouse_id").toString());
+            String sMode = (String) jsonShipment.get("shipment_method");
+            String sID = (String) jsonShipment.get("shipment_id");
+            float sWeight = Float.parseFloat(jsonShipment.get("weight").toString());
+            long rDate = (long) jsonShipment.get("receipt_date");
 
-                // Create the shipment
+            if (validWarehouse(wID)) {
                 Shipment shipment = new Shipment(sID, sMode, sWeight, wID, rDate);
-
-                // Add the shipment to the Warehouse's records
-                for ( Warehouse wh : warehouses ) {
-                    if (wh.getWarehouseID() == wID) {
-                        wh.recordShipment(shipment);
-                    }
-                }
-
-                // Add the shipment to the data store
+                getWarehouseByID(wID).recordShipment(shipment);
                 addShipmentToDataStore(shipment);
+            } else {
+                invalidShipments.add(sID);
             }
+        }
+        return invalidShipments;
     }
 
     /**
@@ -167,7 +187,7 @@ public class WarehouseManager {
         }
     }
 
-    private void addShipmentToDataStore(Shipment shipment) throws IOException, ParseException {
+    public void addShipmentToDataStore(Shipment shipment) throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         FileReader file = new FileReader("src/resources/shipments.json");
         JSONObject shipmentsObject = (JSONObject) parser.parse(file);
