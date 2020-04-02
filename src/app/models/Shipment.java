@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-
-import app.helpers.WeightHelper;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.FloatProperty;
@@ -30,7 +28,7 @@ public class Shipment {
     private LongProperty receivedAt = new SimpleLongProperty();
     private StringProperty readableReceivedAt = new SimpleStringProperty();
     private StringProperty weightUnit = new SimpleStringProperty();
-    private WeightHelper weightHelper = new WeightHelper();
+    //private WeightHelper weightHelper = new WeightHelper();
 
     public Shipment() {}
     /**
