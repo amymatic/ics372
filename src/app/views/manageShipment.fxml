@@ -55,7 +55,7 @@
                        GridPane.columnSpan="1" GridPane.rowSpan="1"
                        GridPane.halignment="LEFT" fx:id="shipmentIDField" editable="false">
             </TextField>
-            <Label text="Shipment Weight" GridPane.columnIndex="0"
+            <Label text="Shipment Weight (lbs)" GridPane.columnIndex="0"
                    GridPane.rowIndex="3" GridPane.columnSpan="1"
                    GridPane.rowSpan="1" GridPane.halignment="RIGHT">
                 <font>

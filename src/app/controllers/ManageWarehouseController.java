@@ -53,7 +53,7 @@ public class ManageWarehouseController {
         warehouse.setShipMode(shipModeRadioButton.selectedProperty().getValue());
         warehouse.setReceiving(receivingRadioButton.selectedProperty().getValue());
 
-        updateWarehouseDataStore();
+        ShipTracker.warehouseMgr.updateWarehouseDataStore(warehouseList);
         AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, manageWarehousePane.getScene().getWindow(),
                 "Success", "Warehouse Updated");
     }
@@ -85,9 +85,5 @@ public class ManageWarehouseController {
                 }
             }
         });
-    }
-
-    private void updateWarehouseDataStore() {
-        ShipTracker.warehouseMgr.writeWarehousesToJSON(warehouseList);
     }
 }

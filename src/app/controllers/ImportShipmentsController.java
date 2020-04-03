@@ -70,7 +70,7 @@ public class ImportShipmentsController {
                         "Success", "Shipments imported");
             } else {
                 AlertHelper.showAlert(Alert.AlertType.INFORMATION, importShipmentsPane.getScene().getWindow(),
-                        "Note", "These shipments were not imported because the warehouse does not exist: "
+                        "Success", "Some shipments were not imported because the warehouse does not exist: "
                                 + invalidShipments.toString());
             }
         } catch (Exception e) {
@@ -124,9 +124,9 @@ public class ImportShipmentsController {
                 String sID = sh.getShipmentID();
                 String sMode = sh.getShipmentMode().toLowerCase();
                 float sWeight = sh.getShipmentWeight();
-//                if (sh.getWeightUnit().toLowerCase().equals("kg")) {
-//                    sWeight = convertKgsToLbs(sWeight);
-//                }
+                if (sh.getWeightUnit().toLowerCase().equals("kg")) {
+                    sWeight = convertKgsToLbs(sWeight);
+                }
                 int wID = wh.getWarehouseID();
                 long rDate = sh.getReceivedAt();
                 Shipment shipment = new Shipment(sID, sMode, sWeight, wID, rDate);
@@ -138,8 +138,6 @@ public class ImportShipmentsController {
 
     private float convertKgsToLbs(float weight) {
         DecimalFormat df = new DecimalFormat("0.00");
-//        weight *= 2.20462;
-//        df.format(weight * 2.20462);
         return (Float.parseFloat(df.format(weight * 2.20462)));
     }
 }
