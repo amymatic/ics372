@@ -73,7 +73,7 @@
                                         <PropertyValueFactory property="shipmentMode"/>
                                     </cellValueFactory>
                                 </TableColumn>
-                                <TableColumn text="Weight">
+                                <TableColumn text="Weight (lbs)">
                                     <cellValueFactory>
                                         <PropertyValueFactory property="shipmentWeight"/>
                                     </cellValueFactory>
